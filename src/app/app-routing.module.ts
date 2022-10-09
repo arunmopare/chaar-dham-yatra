@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { HotelsComponent } from './hotels/hotels.component';
 import { LoginComponent } from './login/login.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
-import { OtherPlacesComponent } from './other-places/other-places.component';
+import { VisitedPlacesComponent } from './visited-places/visited-places.component';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
@@ -45,7 +45,7 @@ const routes: Routes = [
   },
   {
     path: 'visited-places',
-    component: OtherPlacesComponent
+    component: VisitedPlacesComponent
   },
   {
     path: 'char-dham',

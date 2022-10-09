@@ -13,7 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NavComponent } from './nav/nav.component';
 import { HotelsComponent } from './hotels/hotels.component';
-import { OtherPlacesComponent } from './other-places/other-places.component';
+import { VisitedPlacesComponent } from './visited-places/visited-places.component';
 import { CharDhamComponent } from './char-dham/char-dham.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 
@@ -28,7 +28,7 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
     RegisterComponent,
     NavComponent,
     HotelsComponent,
-    OtherPlacesComponent,
+    VisitedPlacesComponent,
     CharDhamComponent,
     MyProfileComponent
   ],
