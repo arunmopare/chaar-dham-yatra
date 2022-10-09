@@ -1,6 +1,14 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthWelcomeComponent } from './auth-welcome/auth-welcome.component';
+import { CharDhamComponent } from './char-dham/char-dham.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { HomeComponent } from './home/home.component';
+import { HotelsComponent } from './hotels/hotels.component';
+import { LoginComponent } from './login/login.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
+import { OtherPlacesComponent } from './other-places/other-places.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
@@ -15,6 +23,37 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'welcome',
+    component: AuthWelcomeComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  }, {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordComponent
+  },
+  {
+    path: 'hotels',
+    component: HotelsComponent
+  },
+  {
+    path: 'visited-places',
+    component: OtherPlacesComponent
+  },
+  {
+    path: 'char-dham',
+    component: CharDhamComponent
+  },
+  {
+    path: 'my-profile',
+    component: MyProfileComponent
   },
 ];
 
