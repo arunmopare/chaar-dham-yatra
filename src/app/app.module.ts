@@ -16,6 +16,7 @@ import { HotelsComponent } from './hotels/hotels.component';
 import { VisitedPlacesComponent } from './visited-places/visited-places.component';
 import { CharDhamComponent } from './char-dham/char-dham.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
+import { OtherPlacesComponent } from './other-places/other-places.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
     HotelsComponent,
     VisitedPlacesComponent,
     CharDhamComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    OtherPlacesComponent
   ],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

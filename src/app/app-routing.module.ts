@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { VisitedPlacesComponent } from './visited-places/visited-places.component';
 import { RegisterComponent } from './register/register.component';
+import { OtherPlacesComponent } from './other-places/other-places.component';
 
 const routes: Routes = [
   {
@@ -54,6 +55,10 @@ const routes: Routes = [
   {
     path: 'my-profile',
     component: MyProfileComponent
+  },
+  {
+    path: 'other-places',
+    component: OtherPlacesComponent
   },
 ];
 
