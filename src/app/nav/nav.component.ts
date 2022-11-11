@@ -16,7 +16,7 @@ export class NavComponent implements OnInit {
     { title: 'Forgot Password', url: '/forgot-password', icon: 'settings' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-
+  isAuthenticated = false;
   constructor() { }
 
   ngOnInit() { }

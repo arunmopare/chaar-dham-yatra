@@ -14,7 +14,7 @@ import { OtherPlacesComponent } from './other-places/other-places.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'welcome',
     pathMatch: 'full'
   },
   {
