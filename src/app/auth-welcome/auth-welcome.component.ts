@@ -9,6 +9,8 @@ export class AuthWelcomeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // TODO: if is logged in just send him to home
+  }
 
 }

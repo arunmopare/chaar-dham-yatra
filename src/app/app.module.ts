@@ -17,6 +17,7 @@ import { VisitedPlacesComponent } from './visited-places/visited-places.componen
 import { CharDhamComponent } from './char-dham/char-dham.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { OtherPlacesComponent } from './other-places/other-places.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -32,9 +33,9 @@ import { OtherPlacesComponent } from './other-places/other-places.component';
     VisitedPlacesComponent,
     CharDhamComponent,
     MyProfileComponent,
-    OtherPlacesComponent
+    OtherPlacesComponent,
   ],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, ReactiveFormsModule, FormsModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
