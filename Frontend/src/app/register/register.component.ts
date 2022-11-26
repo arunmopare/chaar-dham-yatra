@@ -9,6 +9,11 @@ export class RegisterComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
-
+  ngOnInit() { }
+  onRegisterClick(data) {
+    console.log(data);
+    if (data.form.status === 'VALID') {
+      // send data to api
+    }
+  }
 }

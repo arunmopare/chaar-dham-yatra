@@ -12,26 +12,28 @@
   </div>
 </div>
 <ion-content class="auth-form text-center container">
-  <form>
+  <form #registerForm="ngForm" (ngSubmit)="onRegisterClick(registerForm)">
     <ion-item lines="full">
       <ion-label position="floating">First name</ion-label>
-      <ion-input type="text" required></ion-input>
+      <ion-input name="firstName" type="text" ngModel required></ion-input>
     </ion-item>
     <ion-item lines="full">
       <ion-label position="floating">Last name</ion-label>
-      <ion-input type="text" required></ion-input>
+      <ion-input name="lastName" type="text" ngModel required></ion-input>
     </ion-item>
     <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" required></ion-input>
+      <ion-label for="email" position="floating">Email</ion-label>
+      <ion-input pattern="^\S+@\S+\.\S+$" name="email" [type]="" type="email" ngModel required>
+      </ion-input>
     </ion-item>
     <ion-item lines="full">
       <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" required></ion-input>
+      <ion-input name="password" type="password" minlength="5" ngModel required></ion-input>
     </ion-item>
     <ion-row>
       <ion-col>
-        <ion-button type="submit" color="danger" expand="block">Sign Up</ion-button>
+        <ion-button [disabled]="registerForm.form.status === 'INVALID'" type="submit" color="danger" expand="block">Sign
+          Up</ion-button>
       </ion-col>
     </ion-row>
   </form>

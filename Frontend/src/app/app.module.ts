@@ -18,6 +18,7 @@ import { CharDhamComponent } from './char-dham/char-dham.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { OtherPlacesComponent } from './other-places/other-places.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AdminModule } from './admin/admin.module';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MyProfileComponent,
     OtherPlacesComponent,
   ],
-  imports: [BrowserModule, ReactiveFormsModule, FormsModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, ReactiveFormsModule, FormsModule, IonicModule.forRoot(), AppRoutingModule, AdminModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

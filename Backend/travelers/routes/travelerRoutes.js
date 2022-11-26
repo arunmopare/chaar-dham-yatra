@@ -3,14 +3,14 @@ var router = express.Router()
 const { check, validationResult } = require('express-validator');
 const { signUp, signInWithEmailAndPassword } = require('../controllers/travelerController');
 
-router.post("/signup", [
+router.post("/traveler/signup", [
     check("name", "name should be at-least 3 charecter").isLength({ min: 3 }),
     check("email", "email is required").isEmail(),
     check("password", "password must be at-lest 6 char").isLength({ min: 6 })
 ], signUp);
 
 
-router.post("/signin", [
+router.post("/traveler/signin", [
     check("email", "email is required").isEmail(),
     check("password", "password must be at-lest 6 char").isLength({ min: 6 })
 ], signInWithEmailAndPassword);

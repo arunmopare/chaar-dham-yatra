@@ -76,3 +76,33 @@ exports.signUp = async (req, res) => {
         res.status(400).json({ msg: "Something went wrong" });
     }
 };
+
+exports.isAuthenticated = async (req, res, next) => {
+    if (!req.headers.authorization) {
+        console.log("1", req.headers.authorization);
+        return res.status(401).json({
+            error: "Unauthorized Request 1",
+        });
+    }
+    let token = req.headers.authorization.split(" ")[1];
+    if (token == "null") {
+        console.log("2", req.headers.authorization);
+        return res.status(401).json({
+            error: "Unauthorized Request",
+        });
+    }
+    try {
+        let payload = jwt.verify(token, process.env.SECRET);
+        if (!payload) {
+            return res.status(401).json({
+                error: "Unauthorized Request 3",
+            });
+        }
+        req.userPayloadId = payload._id;
+        next();
+    } catch (error) {
+        console.log("3", req.headers.authorization);
+        logger("error", error);
+        return res.status(400).json({ msg: "Errors: Something went wrong." });
+    }
+};
