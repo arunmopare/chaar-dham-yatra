@@ -11,6 +11,7 @@
     </div>
   </div>
 </div>
+
 <ion-content class="auth-form text-center container">
   <form #registerForm="ngForm" (ngSubmit)="onRegisterClick(registerForm)">
     <ion-item lines="full">
@@ -34,6 +35,9 @@
       <ion-col>
         <ion-button [disabled]="registerForm.form.status === 'INVALID'" type="submit" color="danger" expand="block">Sign
           Up</ion-button>
+      </ion-col>
+      <ion-col style="color : red;">
+        {{error}}
       </ion-col>
     </ion-row>
   </form>

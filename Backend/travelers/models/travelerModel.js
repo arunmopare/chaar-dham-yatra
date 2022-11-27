@@ -5,9 +5,9 @@ const uuid = require('uuid');
 
 const travelerSchema = new Schema({
     id: String,
-    name: String, // String is shorthand for {type: String}
+    firstName: String,
+    lastName: String, // String is shorthand for {type: String}
     email: String,
-    userName: String,
     salt: String,
     encrypted_password: {
         type: String,

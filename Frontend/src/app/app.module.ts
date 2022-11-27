@@ -19,6 +19,7 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
 import { OtherPlacesComponent } from './other-places/other-places.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminModule } from './admin/admin.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import { AdminModule } from './admin/admin.module';
     MyProfileComponent,
     OtherPlacesComponent,
   ],
-  imports: [BrowserModule, ReactiveFormsModule, FormsModule, IonicModule.forRoot(), AppRoutingModule, AdminModule],
+  imports: [HttpClientModule, BrowserModule, ReactiveFormsModule, FormsModule, IonicModule.forRoot(), AppRoutingModule, AdminModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

@@ -48,7 +48,7 @@ exports.signUp = async (req, res) => {
 
     if (!errors.isEmpty()) {
         return res.status(422).json({
-            error: errors.array()[0].msg,
+            err: errors.array()[0].msg,
         });
     }
     try {
