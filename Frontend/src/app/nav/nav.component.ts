@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { SessionService } from '../Services/session.service';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -17,8 +18,16 @@ export class NavComponent implements OnInit {
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   isAuthenticated = false;
-  constructor() { }
+  constructor(private sessionService: SessionService, private router: Router) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    if (this.sessionService.isTravelerLoggedIn()) {
+      this.isAuthenticated = true;
+    }
+    else {
+      this.isAuthenticated = false;
+      this.router.navigateByUrl('/welcome');
+    }
+  }
 
 }

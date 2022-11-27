@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { TravelerService } from '../traveler.service';
+import { TravelerService } from '../Services/traveler.service';
 import { Traveler } from '../interface/traveler';
-import { SessionService } from '../session.service';
+import { SessionService } from '../Services/session.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +12,13 @@ import { SessionService } from '../session.service';
 })
 export class LoginComponent implements OnInit {
   error = '';
-  constructor(private travelerService: TravelerService, private sessionService: SessionService) { }
+  constructor(private travelerService: TravelerService, private sessionService: SessionService, private router: Router) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    if (this.sessionService.isTravelerLoggedIn()) {
+      this.router.navigateByUrl('/home');
+    }
+  }
   onLoginClick(data) {
     if (data.form.status === 'VALID') {
       this.travelerService.travelerLogin(data.form.value).subscribe(

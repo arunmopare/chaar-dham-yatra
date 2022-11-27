@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
-import { Traveler } from '../interface/traveler';
-import { TravelerService } from '../traveler.service';
-
+import { TravelerService } from '../Services/traveler.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',

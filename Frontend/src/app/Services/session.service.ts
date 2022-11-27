@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Traveler } from './interface/traveler';
+import { Traveler } from '../interface/traveler';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,7 +23,14 @@ export class SessionService {
   isTravelerLoggedIn() {
     const session = localStorage.getItem('TravelerSession');
     if (session) {
-      return true;
+      const traveler: Traveler = JSON.parse(session);
+      console.log('====================================');
+      console.log(traveler);
+      console.log('====================================');
+      if (traveler.userId !== null) {
+        return true;
+      }
+      return false;
     }
     return false;
   }
