@@ -29,15 +29,23 @@
     </ion-item>
     <ion-item lines="full">
       <ion-label position="floating">Password</ion-label>
-      <ion-input name="password" type="password" minlength="5" ngModel required></ion-input>
+      <ion-input name="password" type="password" minlength="6" ngModel required></ion-input>
     </ion-item>
+    <ion-row>
+      <ion-col style="color : red;">
+        {{error}}
+      </ion-col>
+    </ion-row>
     <ion-row>
       <ion-col>
         <ion-button [disabled]="registerForm.form.status === 'INVALID'" type="submit" color="danger" expand="block">Sign
           Up</ion-button>
       </ion-col>
-      <ion-col style="color : red;">
-        {{error}}
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button [routerLink]="['/login']" color="success" expand="block">
+          Already Have an Account</ion-button>
       </ion-col>
     </ion-row>
   </form>

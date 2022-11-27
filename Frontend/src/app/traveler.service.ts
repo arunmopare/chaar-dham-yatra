@@ -8,10 +8,14 @@ import { Traveler } from './interface/traveler';
 })
 export class TravelerService {
   apiEndpoint = API_ENDPOINT;
-  logInEndpoint = this.apiEndpoint + '/traveler/signup';
+  registerEndpoint = this.apiEndpoint + '/traveler/signup';
+  loginEndpoint = this.apiEndpoint + '/traveler/signin';
 
   constructor(private http: HttpClient) { }
   travelerRegistration(data: Traveler) {
-    return this.http.post<any>(this.logInEndpoint, data);
+    return this.http.post<any>(this.registerEndpoint, data);
+  }
+  travelerLogin(data: Traveler) {
+    return this.http.post<any>(this.loginEndpoint, data);
   }
 }

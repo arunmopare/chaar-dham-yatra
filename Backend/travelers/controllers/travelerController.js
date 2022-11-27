@@ -17,12 +17,12 @@ exports.signInWithEmailAndPassword = async (req, res) => {
         const traveler = await Traveler.findOne({ email: email }).exec();
 
         if (traveler == null) {
-            res.status(400).json({ msg: "Error: user not found" });
+            res.status(400).json({ err: "User not found" });
         }
 
         if (!traveler.authenticate(password)) {
             return res.status(400).json({
-                err: "Error: NOT Authorized wrong password",
+                err: "Invalid email or password",
             });
         }
 
@@ -30,12 +30,19 @@ exports.signInWithEmailAndPassword = async (req, res) => {
             expiresIn: "24h",
         });
 
-        res.cookie("token", token, { expire: new Date() + 99 });
+        res.cookie("token", token, { expire: new Date() + 99 })
+
         return res.status(200).json({
-            idToken: token,
             userId: traveler._id,
-            refreshToken: token,
-            expiresIn: "86400",
+            email: traveler.email,
+            firstName: traveler.firstName,
+            lastName: traveler.lastName,
+            auth: {
+                idToken: token,
+                refreshToken: token,
+                expiresIn: "86400",
+            },
+
         });
     } catch (error) {
         res.status(400).json({ msg: "Something went wrong" });

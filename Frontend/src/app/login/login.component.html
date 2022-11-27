@@ -15,19 +15,30 @@
   <form #loginForm="ngForm" (ngSubmit)="onLoginClick(loginForm)">
     <ion-item lines="full">
       <ion-label position="floating">Email</ion-label>
-      <ion-input name="email" type="text" required ngModel></ion-input>
+      <ion-input pattern="^\S+@\S+\.\S+$" name="email" type="text" required ngModel></ion-input>
     </ion-item>
 
     <ion-item lines="full">
       <ion-label position="floating">Password</ion-label>
-      <ion-input name="password" type="password" required ngModel></ion-input>
+      <ion-input minlength="6" name="password" type="password" required ngModel></ion-input>
     </ion-item>
-
+    <ion-row>
+      <ion-col style="color : red;">
+        {{error}}
+      </ion-col>
+    </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button type="submit" value="submit" color="danger" expand="block">Sign In</ion-button>
+        <ion-button [disabled]="loginForm.form.status === 'INVALID'" type="submit" type="submit" value="submit"
+          color="danger" expand="block">Sign In</ion-button>
         <span class="divider line one-line">or</span>
         <a class="already" [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button [routerLink]="['/register']" color="success" expand="block">
+          Create Account</ion-button>
       </ion-col>
     </ion-row>
   </form>

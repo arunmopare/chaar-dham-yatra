@@ -23,8 +23,5 @@ export class RegisterComponent implements OnInit {
       );
       // send data to api
     }
-    console.log('====================================');
-    console.log(this.error);
-    console.log('====================================');
   }
 }
