@@ -19,10 +19,10 @@ export class NavComponent implements OnInit {
   ];
   public adminPages = [
     { title: 'Home', url: '/home', icon: 'home' },
-    { title: 'Add Char Dham', url: '/char-dham', icon: 'flag' },
-    { title: 'Add Other Places', url: '/other-places', icon: 'bus' },
-    { title: 'Add Hotels', url: '/visited-places', icon: 'cafe' },
-    { title: 'My Profile', url: '/my-profile', icon: 'person' },
+    { title: 'Add Char Dham', url: '/admin-add-char-dham', icon: 'flag' },
+    { title: 'Add Other Places', url: '/admin-add-other-places', icon: 'bus' },
+    { title: 'Add Hotels', url: '/admin-add-hotelss', icon: 'cafe' },
+    { title: 'My Profile', url: '/admin-profile', icon: 'person' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   isAuthenticatedTraveler = false;

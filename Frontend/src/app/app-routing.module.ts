@@ -11,9 +11,16 @@ import { VisitedPlacesComponent } from './visited-places/visited-places.componen
 import { RegisterComponent } from './register/register.component';
 import { OtherPlacesComponent } from './other-places/other-places.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { AdminAddCharDhamComponent } from './admin/admin-add-char-dham/admin-add-char-dham.component';
+import { AdminAddOtherPlacesComponent } from './admin/admin-add-other-places/admin-add-other-places.component';
+import { AdminAddHotelsComponent } from './admin/admin-add-hotels/admin-add-hotels.component';
+import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
+import { TravelerAuthGuard } from './Services/traveler-auth.guard';
+import { AdminAuthGuard } from './Services/admin-auth.guard';
 
 const routes: Routes = [
   {
+    canActivate: [TravelerAuthGuard],
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
@@ -23,6 +30,7 @@ const routes: Routes = [
     loadChildren: () => import('./folder/folder.module').then(m => m.FolderPageModule)
   },
   {
+    canActivate: [TravelerAuthGuard],
     path: 'home',
     component: HomeComponent
   },
@@ -42,30 +50,56 @@ const routes: Routes = [
     component: ForgotPasswordComponent
   },
   {
+    canActivate: [TravelerAuthGuard],
     path: 'hotels',
     component: HotelsComponent
   },
   {
+    canActivate: [TravelerAuthGuard],
     path: 'visited-places',
     component: VisitedPlacesComponent
   },
   {
+    canActivate: [TravelerAuthGuard],
     path: 'char-dham',
     component: CharDhamComponent
   },
   {
+    canActivate: [TravelerAuthGuard],
     path: 'my-profile',
     component: MyProfileComponent
   },
   {
+    canActivate: [TravelerAuthGuard],
     path: 'other-places',
     component: OtherPlacesComponent
   },
   // admin
   {
+    canActivate: [AdminAuthGuard],
     path: 'admin-home',
     component: AdminDashboardComponent
-  }
+  },
+  {
+    canActivate: [AdminAuthGuard],
+    path: 'admin-add-char-dham',
+    component: AdminAddCharDhamComponent
+  },
+  {
+    canActivate: [AdminAuthGuard],
+    path: 'admin-add-other-places',
+    component: AdminAddOtherPlacesComponent
+  },
+  {
+    canActivate: [AdminAuthGuard],
+    path: 'admin-add-hotels',
+    component: AdminAddHotelsComponent
+  },
+  {
+    canActivate: [AdminAuthGuard],
+    path: 'admin-profile',
+    component: AdminProfileComponent
+  },
 ];
 
 @NgModule({

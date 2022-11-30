@@ -18,6 +18,9 @@ export class LoginComponent implements OnInit {
     if (this.sessionService.isTravelerLoggedIn()) {
       this.router.navigateByUrl('/home');
     }
+    else if (this.sessionService.isAdminLoggedIn()) {
+      this.router.navigateByUrl('/admin-home');
+    }
   }
   onLoginClick(data) {
     if (data.form.status === 'VALID') {
