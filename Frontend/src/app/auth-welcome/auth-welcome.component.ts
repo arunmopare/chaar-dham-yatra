@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SessionService } from '../Services/session.service';
 
 @Component({
   selector: 'app-auth-welcome',
@@ -7,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthWelcomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sessionService: SessionService, private router: Router) { }
 
   ngOnInit() {
-    // TODO: if is logged in just send him to home
+    if (this.sessionService.isTravelerLoggedIn()) {
+      this.router.navigateByUrl('/home');
+    }
   }
 
 }

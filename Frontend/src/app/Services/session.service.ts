@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Traveler } from '../interface/traveler';
 @Injectable({
   providedIn: 'root'
 })
 export class SessionService {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   createTravelerSession(traveler: Traveler) {
     localStorage.setItem('TravelerSession', JSON.stringify(traveler));
@@ -18,7 +19,7 @@ export class SessionService {
   }
   getTravelerCurrentSession() {
     const session = localStorage.getItem('TravelerSession');
-    return JSON.parse(session);
+    return JSON.parse(session) as Traveler;
   }
   isTravelerLoggedIn() {
     const session = localStorage.getItem('TravelerSession');
@@ -33,5 +34,9 @@ export class SessionService {
       return false;
     }
     return false;
+  }
+  logTravelerOut() {
+    localStorage.removeItem('TravelerSession');
+    this.router.navigateByUrl('login');
   }
 }

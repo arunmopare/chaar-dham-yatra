@@ -17,7 +17,7 @@ exports.signInWithEmailAndPassword = async (req, res) => {
         const traveler = await Traveler.findOne({ email: email }).exec();
 
         if (traveler == null) {
-            res.status(400).json({ err: "User not found" });
+            return res.status(400).json({ err: "User not found" });
         }
 
         if (!traveler.authenticate(password)) {
@@ -41,11 +41,12 @@ exports.signInWithEmailAndPassword = async (req, res) => {
                 idToken: token,
                 refreshToken: token,
                 expiresIn: "86400",
+                role: traveler.role
             },
 
         });
     } catch (error) {
-        res.status(400).json({ msg: "Something went wrong" });
+        return res.status(400).json({ err: "Something went wrong" });
     }
 };
 
@@ -73,14 +74,24 @@ exports.signUp = async (req, res) => {
                     err: "NOT able to save traveler in DB",
                 });
             }
-            res.json({
-                name: user.name,
+            const token = jwt.sign({ _id: user._id }, process.env.SECRET, {
+                expiresIn: "24h",
+            });
+            return res.status(200).json({
+                userId: user._id,
+                firstName: user.firstName,
+                lastName: user.lastName,
                 email: user.email,
-                id: user._id,
+                auth: {
+                    idToken: token,
+                    refreshToken: token,
+                    expiresIn: "86400",
+                    role: user.role
+                },
             });
         });
     } catch (error) {
-        res.status(400).json({ msg: "Something went wrong" });
+        res.status(400).json({ err: "Something went wrong" });
     }
 };
 
@@ -88,7 +99,7 @@ exports.isAuthenticated = async (req, res, next) => {
     if (!req.headers.authorization) {
         console.log("1", req.headers.authorization);
         return res.status(401).json({
-            error: "Unauthorized Request 1",
+            err: "Unauthorized Request",
         });
     }
     let token = req.headers.authorization.split(" ")[1];

@@ -9,6 +9,10 @@ const travelerSchema = new Schema({
     lastName: String, // String is shorthand for {type: String}
     email: String,
     salt: String,
+    role: {
+        type: String,
+        default: '01'
+    },
     encrypted_password: {
         type: String,
     },

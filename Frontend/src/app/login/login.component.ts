@@ -24,6 +24,9 @@ export class LoginComponent implements OnInit {
       this.travelerService.travelerLogin(data.form.value).subscribe(
         res => {
           this.sessionService.createTravelerSession(res);
+          this.router.navigateByUrl('/home').then(() => {
+            window.location.reload();
+          });
         },
         err => this.error = err.error.err
       );
