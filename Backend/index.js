@@ -11,7 +11,9 @@ app.use(jsonParser);
 
 const cookieParser = require("cookie-parser");
 var cors = require('cors')
-
+app.use(cors({
+    origin: '*'
+}));
 app.use(cookieParser())
 app.use(cors());
 

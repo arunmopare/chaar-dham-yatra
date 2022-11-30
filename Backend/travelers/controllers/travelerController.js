@@ -26,7 +26,7 @@ exports.signInWithEmailAndPassword = async (req, res) => {
             });
         }
 
-        const token = jwt.sign({ _id: traveler._id }, process.env.SECRET, {
+        const token = jwt.sign({ _id: traveler._id }, process.env.SECRET || 'dont tell', {
             expiresIn: "24h",
         });
 
