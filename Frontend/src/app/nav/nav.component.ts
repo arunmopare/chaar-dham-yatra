@@ -18,10 +18,9 @@ export class NavComponent implements OnInit {
     { title: 'Forgot Password', url: '/forgot-password', icon: 'settings' },
   ];
   public adminPages = [
-    { title: 'Home', url: '/home', icon: 'home' },
-    { title: 'Add Char Dham', url: '/admin-add-char-dham', icon: 'flag' },
-    { title: 'Add Other Places', url: '/admin-add-other-places', icon: 'bus' },
-    { title: 'All Places', url: '/admin-all-places', icon: 'bus' },
+    { title: 'Home', url: '/admin-home', icon: 'home' },
+    { title: 'Add Place', url: '/admin-add-char-dham', icon: 'add' },
+    { title: 'All Places', url: '/admin-all-places', icon: 'list' },
     { title: 'Add Hotels', url: '/admin-add-hotels', icon: 'cafe' },
     { title: 'My Profile', url: '/admin-profile', icon: 'person' },
   ];
