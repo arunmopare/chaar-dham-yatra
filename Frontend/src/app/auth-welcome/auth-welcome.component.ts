@@ -15,6 +15,9 @@ export class AuthWelcomeComponent implements OnInit {
     if (this.sessionService.isTravelerLoggedIn()) {
       this.router.navigateByUrl('/home');
     }
+    else if (this.sessionService.isAdminLoggedIn()) {
+      this.router.navigateByUrl('/admin-home');
+    }
   }
 
 }

@@ -11,4 +11,5 @@ interface Auth {
     idToken?: string;
     expiresIn?: string;
     refreshToken?: string;
+    role?: string;
 }

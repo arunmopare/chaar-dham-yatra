@@ -10,6 +10,7 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
 import { VisitedPlacesComponent } from './visited-places/visited-places.component';
 import { RegisterComponent } from './register/register.component';
 import { OtherPlacesComponent } from './other-places/other-places.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -60,6 +61,11 @@ const routes: Routes = [
     path: 'other-places',
     component: OtherPlacesComponent
   },
+  // admin
+  {
+    path: 'admin-home',
+    component: DashboardComponent
+  }
 ];
 
 @NgModule({

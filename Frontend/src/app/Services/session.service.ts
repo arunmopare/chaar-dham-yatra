@@ -25,10 +25,18 @@ export class SessionService {
     const session = localStorage.getItem('TravelerSession');
     if (session) {
       const traveler: Traveler = JSON.parse(session);
-      console.log('====================================');
-      console.log(traveler);
-      console.log('====================================');
-      if (traveler.userId !== null) {
+      if (traveler.userId !== null && traveler.auth.role === '01') {
+        return true;
+      }
+      return false;
+    }
+    return false;
+  }
+  isAdminLoggedIn() {
+    const session = localStorage.getItem('TravelerSession');
+    if (session) {
+      const admin: Traveler = JSON.parse(session);
+      if (admin.userId !== null && admin.auth.role === '00') {
         return true;
       }
       return false;
