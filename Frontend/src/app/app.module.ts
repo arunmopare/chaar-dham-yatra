@@ -20,6 +20,11 @@ import { OtherPlacesComponent } from './other-places/other-places.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { AdminAddCharDhamComponent } from './admin/admin-add-char-dham/admin-add-char-dham.component';
+import { AdminAddHotelsComponent } from './admin/admin-add-hotels/admin-add-hotels.component';
+import { AdminAddOtherPlacesComponent } from './admin/admin-add-other-places/admin-add-other-places.component';
+import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
+import { AdminAllPlacesComponent } from './admin/admin-all-places/admin-all-places.component';
 
 
 @NgModule({
@@ -36,7 +41,12 @@ import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard
     CharDhamComponent,
     MyProfileComponent,
     OtherPlacesComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    AdminAddCharDhamComponent,
+    AdminAddHotelsComponent,
+    AdminAddOtherPlacesComponent,
+    AdminProfileComponent,
+    AdminAllPlacesComponent
   ],
   imports: [HttpClientModule, BrowserModule, ReactiveFormsModule, FormsModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

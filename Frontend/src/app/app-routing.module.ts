@@ -17,12 +17,12 @@ import { AdminAddHotelsComponent } from './admin/admin-add-hotels/admin-add-hote
 import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
 import { TravelerAuthGuard } from './Services/traveler-auth.guard';
 import { AdminAuthGuard } from './Services/admin-auth.guard';
+import { AdminAllPlacesComponent } from './admin/admin-all-places/admin-all-places.component';
 
 const routes: Routes = [
   {
-    canActivate: [TravelerAuthGuard],
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'welcome',
     pathMatch: 'full'
   },
   {
@@ -99,6 +99,11 @@ const routes: Routes = [
     canActivate: [AdminAuthGuard],
     path: 'admin-profile',
     component: AdminProfileComponent
+  },
+  {
+    canActivate: [AdminAuthGuard],
+    path: 'admin-all-places',
+    component: AdminAllPlacesComponent
   },
 ];
 

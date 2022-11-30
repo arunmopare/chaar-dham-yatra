@@ -21,7 +21,8 @@ export class NavComponent implements OnInit {
     { title: 'Home', url: '/home', icon: 'home' },
     { title: 'Add Char Dham', url: '/admin-add-char-dham', icon: 'flag' },
     { title: 'Add Other Places', url: '/admin-add-other-places', icon: 'bus' },
-    { title: 'Add Hotels', url: '/admin-add-hotelss', icon: 'cafe' },
+    { title: 'All Places', url: '/admin-all-places', icon: 'bus' },
+    { title: 'Add Hotels', url: '/admin-add-hotels', icon: 'cafe' },
     { title: 'My Profile', url: '/admin-profile', icon: 'person' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];

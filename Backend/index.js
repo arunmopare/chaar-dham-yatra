@@ -26,9 +26,12 @@ app.get('/', (req, res) => {
 })
 
 const travelersRoutes = require("./travelers/routes/travelerRoutes");
+const adminRoutes = require("./admin/routes/adminRoutes")
 // //Routes
 // // Traveler
 app.use("/api", travelersRoutes)
+// // Admin
+app.use("/api", adminRoutes)
 
 
 app.listen(port, () => {
