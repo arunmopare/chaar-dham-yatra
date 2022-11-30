@@ -29,15 +29,20 @@ exports.createPlace = async (req, res, next) => {
 
 exports.getAllPlaces = async (req, res, next) => {
     try {
-        const places = await Place.find({});
-        console.log('====================================');
-        console.log(places);
-        console.log('====================================');
+        const search = req.param('search');
+        var regex = new RegExp(search);
+        let places = [];
+        if (search === 'undefined' || search === '') {
+            places = await Place.find({});
+        }
+        else {
+            places = await Place.find({ name: regex });
+        }
         if (places.length > 0) {
             return res.status(200).json(places);
         }
         else {
-            return res.status(200).json();
+            return res.status(200).json(places);
         }
     } catch (error) {
         res.status(400).json({ err: "Something went wrong" });

@@ -10,19 +10,29 @@ import { AdminService } from 'src/app/Services/admin.service';
 export class AdminAllPlacesComponent implements OnInit {
 
   currentPlaces: Place[] = []
+  search: '';
 
   constructor(private adminService: AdminService) { }
 
   ngOnInit() {
-    this.adminService.getAllPlaces().subscribe(
+    this.adminService.getSearchedPlaces(undefined).subscribe(
       res => {
         this.currentPlaces = res;
-        console.log(this.currentPlaces);
-
       },
       err => {
         console.log(err);
+      }
+    )
+  }
 
+  onSearchModified() {
+    this.adminService.getSearchedPlaces(this.search).subscribe(
+      res => {
+        this.currentPlaces = res;
+        console.log(this.currentPlaces);
+      },
+      err => {
+        console.log(err);
       }
     )
   }

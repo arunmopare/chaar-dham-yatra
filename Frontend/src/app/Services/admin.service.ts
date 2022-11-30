@@ -19,5 +19,8 @@ export class AdminService {
   getAllPlaces() {
     return this.http.get<any>(this.getPlacesEndpoint);
   }
+  getSearchedPlaces(search) {
+    return this.http.get<any>(this.getPlacesEndpoint + '/' + search);
+  }
 
 }

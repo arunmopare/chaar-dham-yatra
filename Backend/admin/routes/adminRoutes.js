@@ -10,8 +10,7 @@ router.post("/admin/place", [
     check("imageUrl", "invalid imageUrl").isURL(),
     check("location", "invalid locationUrl").isURL(),
 ], createPlace);
-
-router.get("/admin/places", getAllPlaces);
+router.get("/admin/places/:search", getAllPlaces);
 
 
 module.exports = router;
