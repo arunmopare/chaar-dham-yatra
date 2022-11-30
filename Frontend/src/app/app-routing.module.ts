@@ -10,7 +10,7 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
 import { VisitedPlacesComponent } from './visited-places/visited-places.component';
 import { RegisterComponent } from './register/register.component';
 import { OtherPlacesComponent } from './other-places/other-places.component';
-import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
   {
@@ -64,7 +64,7 @@ const routes: Routes = [
   // admin
   {
     path: 'admin-home',
-    component: DashboardComponent
+    component: AdminDashboardComponent
   }
 ];
 

@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { DashboardComponent } from './dashboard.component';
+import { AdminAddCharDhamComponent } from './admin-add-char-dham.component';
 
-describe('DashboardComponent', () => {
-  let component: DashboardComponent;
-  let fixture: ComponentFixture<DashboardComponent>;
+describe('AdminAddCharDhamComponent', () => {
+  let component: AdminAddCharDhamComponent;
+  let fixture: ComponentFixture<AdminAddCharDhamComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ],
+      declarations: [ AdminAddCharDhamComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DashboardComponent);
+    fixture = TestBed.createComponent(AdminAddCharDhamComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

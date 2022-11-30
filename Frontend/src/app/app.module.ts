@@ -18,8 +18,8 @@ import { CharDhamComponent } from './char-dham/char-dham.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { OtherPlacesComponent } from './other-places/other-places.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AdminModule } from './admin/admin.module';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 
 
 @NgModule({
@@ -36,8 +36,9 @@ import { HttpClientModule } from '@angular/common/http';
     CharDhamComponent,
     MyProfileComponent,
     OtherPlacesComponent,
+    AdminDashboardComponent
   ],
-  imports: [HttpClientModule, BrowserModule, ReactiveFormsModule, FormsModule, IonicModule.forRoot(), AppRoutingModule, AdminModule],
+  imports: [HttpClientModule, BrowserModule, ReactiveFormsModule, FormsModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
