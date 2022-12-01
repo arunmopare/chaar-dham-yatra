@@ -8,7 +8,6 @@ export interface Place {
     isCharDham: boolean;
 };
 
-
 export interface Hotel {
     id: string;
     name?: string;
@@ -16,4 +15,10 @@ export interface Hotel {
     roomsAvailable?: string;
     imageUrl?: string;
     location: string;
+};
+
+export interface Total {
+    totalPlaces?: string;
+    totalHotels?: string;
+    totalTravelers?: string;
 };

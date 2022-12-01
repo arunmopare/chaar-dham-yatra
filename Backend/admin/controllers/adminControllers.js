@@ -1,5 +1,7 @@
 const Place = require("../models/placeModel")
 const Hotel = require("../models/hotelModel")
+const Traveler = require("../../travelers/models/travelerModel")
+
 const { check, validationResult } = require("express-validator");
 
 exports.createPlace = async (req, res, next) => {
@@ -92,6 +94,21 @@ exports.getAllPlaces = async (req, res, next) => {
         else {
             return res.status(200).json(places);
         }
+    } catch (error) {
+        res.status(400).json({ err: "Something went wrong" });
+    }
+}
+
+exports.getTotal = async (req, res, next) => {
+    try {
+        const places = await Place.find({});
+        const hotels = await Hotel.find({});
+        const travelers = await Traveler.find({});
+        return res.status(200).json({
+            totalPlaces: places.length,
+            totalHotels: hotels.length,
+            totalTravelers: travelers.length
+        })
     } catch (error) {
         res.status(400).json({ err: "Something went wrong" });
     }

@@ -12,6 +12,7 @@ export class AdminService {
   hotelEndpoint = this.apiEndpoint + '/admin/hotel';
   getPlacesEndpoint = this.apiEndpoint + '/admin/places';
   getHotelsEndpoint = this.apiEndpoint + '/admin/hotels';
+  getTotalEndpoint = this.apiEndpoint + '/admin/total';
 
   constructor(private http: HttpClient) { }
 
@@ -33,6 +34,9 @@ export class AdminService {
   }
   getSearchedHotels(search) {
     return this.http.get<any>(this.getHotelsEndpoint + '/' + search);
+  }
+  getTotal() {
+    return this.http.get<any>(this.getTotalEndpoint);
   }
 
 }
