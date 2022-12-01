@@ -18,6 +18,11 @@
       and climb a mountain or spend a week in the woods. Wash your spirit clean.
     </ion-card-content>
   </ion-card> -->
+  <ion-item>
+    <ion-input [(ngModel)]="search" placeholder="Search a Place" [clearInput]="true">
+    </ion-input>
+    <ion-icon (click)="onSearchModified()" name="search" slot="end"></ion-icon>
+  </ion-item>
   <ion-card *ngFor="let place of currentPlaces">
     <img src="{{place.imageUrl}}">
     <ion-card-header>
@@ -28,4 +33,9 @@
       {{place.description}}
     </ion-card-content>
   </ion-card>
+  <ion-row class="text-center" *ngIf="currentPlaces.length === 0">
+    <ion-col style="color : red;">
+      No search results found.
+    </ion-col>
+  </ion-row>
 </ion-content>

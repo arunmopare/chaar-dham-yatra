@@ -26,15 +26,25 @@ export class AdminAllPlacesComponent implements OnInit {
   }
 
   onSearchModified() {
-    this.adminService.getSearchedPlaces(this.search).subscribe(
-      res => {
-        this.currentPlaces = res;
-        console.log(this.currentPlaces);
-      },
-      err => {
-        console.log(err);
-      }
-    );
+    if (this.search === '') {
+      this.adminService.getSearchedPlaces(undefined).subscribe(
+        res => {
+          this.currentPlaces = res;
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    } else {
+      this.adminService.getSearchedPlaces(this.search).subscribe(
+        res => {
+          this.currentPlaces = res;
+          console.log(this.currentPlaces);
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    }
   }
-
 }

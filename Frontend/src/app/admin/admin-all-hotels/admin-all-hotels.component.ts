@@ -34,14 +34,15 @@ export class AdminAllHotelsComponent implements OnInit {
           console.log(err);
         }
       );
+    } else {
+      this.adminService.getSearchedHotels(this.search).subscribe(
+        res => {
+          this.currentHotels = res;
+        },
+        err => {
+          console.log(err);
+        }
+      );
     }
-    this.adminService.getSearchedHotels(this.search).subscribe(
-      res => {
-        this.currentHotels = res;
-      },
-      err => {
-        console.log(err);
-      }
-    );
   }
 }
