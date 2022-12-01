@@ -46,3 +46,12 @@
     text-align: center;
     padding-bottom: 10px;
   }
+  ion-content {
+    --background: #0081ca;
+  }
+  
+  ion-slides {
+    height: 100%;
+    --bullet-background-active: #fff;
+    --bullet-background: #000;
+  }

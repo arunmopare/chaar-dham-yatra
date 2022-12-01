@@ -1,24 +1,16 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-12 text-center">
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>
-            Login
-          </ion-title>
-        </ion-toolbar>
-      </ion-header>
-    </div>
-  </div>
-</div>
-<ion-content class="auth-form text-center container">
+<ion-content class="auth-form text-center">
+  <ion-text color="light">
+    <img src="../../assets/logo.png" />
+    <h1>Login Here!</h1>
+    <p>Please use below form to create an Account...</p>
+  </ion-text>
   <form #loginForm="ngForm" (ngSubmit)="onLoginClick(loginForm)">
-    <ion-item lines="full">
+    <ion-item color="gray" lines="full">
       <ion-label position="floating">Email</ion-label>
       <ion-input pattern="^\S+@\S+\.\S+$" name="email" type="text" required ngModel></ion-input>
     </ion-item>
 
-    <ion-item lines="full">
+    <ion-item color="gray" lines="full">
       <ion-label position="floating">Password</ion-label>
       <ion-input minlength="6" name="password" type="password" required ngModel></ion-input>
     </ion-item>

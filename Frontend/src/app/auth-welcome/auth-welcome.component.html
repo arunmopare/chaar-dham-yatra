@@ -1,27 +1,30 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-12 mt-5 text-center">
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>
-            Welcome to Char Dham
-          </ion-title>
-        </ion-toolbar>
-      </ion-header>
-    </div>
-  </div>
-</div>
-<ion-content class="auth-form text-center container">
-  <ion-grid>
-    <ion-row>
-      <ion-col align-self-center>
-        <ion-button [routerLink]="['/register']" expand="block" color="primary">Register</ion-button>
-        <span class="divider line one-line">or</span>
-        <span class="already">Already a user?</span>
-        <ion-button [routerLink]="['/login']" expand="block" color="danger">Sign In</ion-button>
-        <!-- <span class="divider line one-line">or</span>
-        <span class="already">Skip login</span> -->
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+<ion-content>
+  <ion-slides pager="true">
+    <!-- Slide 1 -->
+    <ion-slide>
+      <ion-text color="light">
+        <img src="../../assets/logo.png" />
+        <h1>Hey there!</h1>
+        <p>Welcome to Char Dham and Uttarakhand Tourism...</p>
+        <ion-button (click)="next()" fill="outline" color="light">Next</ion-button>
+      </ion-text>
+    </ion-slide>
+
+    <!-- Slide 2 -->
+    <ion-slide>
+      <ion-grid>
+        <ion-row>
+          <ion-col align-self-center>
+            <img src="../../assets/logo.png" />
+            <ion-button [routerLink]="['/register']" expand="block" color="primary">Register</ion-button>
+            <span class="divider line one-line">or</span>
+            <span class="already">Already a user?</span>
+            <ion-button [routerLink]="['/login']" expand="block" color="danger">Sign In</ion-button>
+            <!-- <span class="divider line one-line">or</span>
+            <span class="already">Skip login</span> -->
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+  </ion-slides>
 </ion-content>

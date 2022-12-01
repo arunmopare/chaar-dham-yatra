@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { IonSlides } from '@ionic/angular';
 import { SessionService } from '../Services/session.service';
 
 @Component({
@@ -8,6 +9,7 @@ import { SessionService } from '../Services/session.service';
   styleUrls: ['./auth-welcome.component.scss'],
 })
 export class AuthWelcomeComponent implements OnInit {
+  @ViewChild(IonSlides) slides: IonSlides;
 
   constructor(private sessionService: SessionService, private router: Router) { }
 
@@ -19,5 +21,7 @@ export class AuthWelcomeComponent implements OnInit {
       this.router.navigateByUrl('/admin-home');
     }
   }
-
+  next() {
+    this.slides.slideNext();
+  }
 }

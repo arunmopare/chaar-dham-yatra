@@ -1,33 +1,24 @@
-<div class="bg-dark">
-  <div class="row">
-    <div class="col-12 text-center">
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>
-            Register
-          </ion-title>
-        </ion-toolbar>
-      </ion-header>
-    </div>
-  </div>
-</div>
-
 <ion-content class="auth-form text-center container">
+  <ion-text color="light">
+    <img src="../../assets/logo.png" />
+    <h1>Register Here!</h1>
+    <p>Please use below form to create an Account...</p>
+  </ion-text>
   <form #registerForm="ngForm" (ngSubmit)="onRegisterClick(registerForm)">
-    <ion-item lines="full">
+    <ion-item color="gray" lines="full">
       <ion-label position="floating">First name</ion-label>
       <ion-input name="firstName" type="text" ngModel required></ion-input>
     </ion-item>
-    <ion-item lines="full">
+    <ion-item color="gray" lines="full">
       <ion-label position="floating">Last name</ion-label>
       <ion-input name="lastName" type="text" ngModel required></ion-input>
     </ion-item>
-    <ion-item lines="full">
+    <ion-item color="gray" lines="full">
       <ion-label for="email" position="floating">Email</ion-label>
       <ion-input pattern="^\S+@\S+\.\S+$" name="email" [type]="" type="email" ngModel required>
       </ion-input>
     </ion-item>
-    <ion-item lines="full">
+    <ion-item color="gray" lines="full">
       <ion-label position="floating">Password</ion-label>
       <ion-input name="password" type="password" minlength="6" ngModel required></ion-input>
     </ion-item>
