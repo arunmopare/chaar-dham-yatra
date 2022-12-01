@@ -12,8 +12,7 @@ export class AdminAllHotelsComponent implements OnInit {
   currentHotels: Hotel[] = [];
   search: '';
   constructor(private adminService: AdminService) { }
-
-  ngOnInit() {
+  getData = () => {
     this.adminService.getSearchedHotels(undefined).subscribe(
       res => {
         this.currentHotels = res;
@@ -22,18 +21,14 @@ export class AdminAllHotelsComponent implements OnInit {
         console.log(err);
       }
     );
+  };
+  ngOnInit() {
+    this.getData();
   }
 
   onSearchModified() {
     if (this.search === '') {
-      this.adminService.getSearchedHotels(undefined).subscribe(
-        res => {
-          this.currentHotels = res;
-        },
-        err => {
-          console.log(err);
-        }
-      );
+      this.getData();
     } else {
       this.adminService.getSearchedHotels(this.search).subscribe(
         res => {
@@ -44,5 +39,15 @@ export class AdminAllHotelsComponent implements OnInit {
         }
       );
     }
+  }
+  deleteHotel(id) {
+    this.adminService.deleteHotel(id).subscribe(
+      res => {
+        this.getData();
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 }

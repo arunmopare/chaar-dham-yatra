@@ -21,10 +21,11 @@
           <ion-thumbnail slot="start">
             <img alt="{{hotel.name}}" src="{{hotel.imageUrl}}" />
           </ion-thumbnail>
-          <ion-label>Name - {{hotel.name}}</ion-label>
-          <ion-label>Total Rooms - {{hotel.totalRooms}}</ion-label>
+          <ion-label>{{hotel.name}}</ion-label>
+          <ion-label>Rooms - {{hotel.totalRooms}}</ion-label>
           <ion-item>
-            <ion-button color="danger">Edit</ion-button>
+            <ion-button color="success">Edit</ion-button>
+            <ion-button (click)="deleteHotel(hotel._id)" color="danger">delete</ion-button>
           </ion-item>
         </ion-item>
       </ion-list>

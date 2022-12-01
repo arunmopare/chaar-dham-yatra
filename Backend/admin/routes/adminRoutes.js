@@ -20,7 +20,7 @@ router.get("/admin/places/:search", getAllPlaces);
 router.delete("/admin/place/:id", deletePlace);
 
 
-router.get("/admin/places/:search", getAllPlaces);
+router.get("/admin/hotels/:search", getAllHotels);
 router.delete("/admin/hotel/:id", deleteHotel);
 
 router.get("/admin/total", getTotal);
