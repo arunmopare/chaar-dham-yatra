@@ -9,7 +9,7 @@ import { AdminService } from 'src/app/Services/admin.service';
 })
 export class AdminAllPlacesComponent implements OnInit {
 
-  currentPlaces: Place[] = []
+  currentPlaces: Place[] = [];
   search: '';
 
   constructor(private adminService: AdminService) { }
@@ -22,7 +22,7 @@ export class AdminAllPlacesComponent implements OnInit {
       err => {
         console.log(err);
       }
-    )
+    );
   }
 
   onSearchModified() {
@@ -34,7 +34,7 @@ export class AdminAllPlacesComponent implements OnInit {
       err => {
         console.log(err);
       }
-    )
+    );
   }
 
 }

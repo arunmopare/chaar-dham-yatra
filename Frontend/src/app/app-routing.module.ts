@@ -18,6 +18,7 @@ import { AdminProfileComponent } from './admin/admin-profile/admin-profile.compo
 import { TravelerAuthGuard } from './Services/traveler-auth.guard';
 import { AdminAuthGuard } from './Services/admin-auth.guard';
 import { AdminAllPlacesComponent } from './admin/admin-all-places/admin-all-places.component';
+import { AdminAllHotelsComponent } from './admin/admin-all-hotels/admin-all-hotels.component';
 
 const routes: Routes = [
   {
@@ -104,6 +105,11 @@ const routes: Routes = [
     canActivate: [AdminAuthGuard],
     path: 'admin-all-places',
     component: AdminAllPlacesComponent
+  },
+  {
+    canActivate: [AdminAuthGuard],
+    path: 'admin-all-hotels',
+    component: AdminAllHotelsComponent
   },
 ];
 

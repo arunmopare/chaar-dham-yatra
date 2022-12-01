@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Traveler } from 'src/app/interface/traveler';
+import { SessionService } from 'src/app/Services/session.service';
 
 @Component({
   selector: 'app-admin-profile',
@@ -6,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-profile.component.scss'],
 })
 export class AdminProfileComponent implements OnInit {
+  isEditing = false;
+  isAuthenticated = false;
+  traveler: Traveler;
 
-  constructor() { }
+  constructor(private sessionService: SessionService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.sessionService.isAdminLoggedIn()) {
+      this.isAuthenticated = true;
+      this.traveler = this.sessionService.getTravelerCurrentSession();
+    }
+    else {
+      this.isAuthenticated = false;
+    }
+  }
+  onEditClick() {
+    this.isEditing = true;
+  }
 
 }

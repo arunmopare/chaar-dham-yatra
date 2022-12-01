@@ -22,7 +22,6 @@ export class AdminAddCharDhamComponent implements OnInit {
         res => {
           this.placeAdded = true;
           this.error = '';
-          this.placeAdded = true;
           this.addPlaceForm.resetForm();
         },
         err => this.error = err.error.err

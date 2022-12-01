@@ -7,3 +7,13 @@ export interface Place {
     location: string;
     isCharDham: boolean;
 };
+
+
+export interface Hotel {
+    id: string;
+    name?: string;
+    totalRooms?: string;
+    roomsAvailable?: string;
+    imageUrl?: string;
+    location: string;
+};

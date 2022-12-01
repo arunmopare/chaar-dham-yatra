@@ -20,8 +20,9 @@ export class NavComponent implements OnInit {
   public adminPages = [
     { title: 'Home', url: '/admin-home', icon: 'home' },
     { title: 'Add Place', url: '/admin-add-char-dham', icon: 'add' },
+    { title: 'Add Hotels', url: '/admin-add-hotels', icon: 'add' },
     { title: 'All Places', url: '/admin-all-places', icon: 'list' },
-    { title: 'Add Hotels', url: '/admin-add-hotels', icon: 'cafe' },
+    { title: 'All Hotels', url: '/admin-all-hotels', icon: 'list' },
     { title: 'My Profile', url: '/admin-profile', icon: 'person' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];

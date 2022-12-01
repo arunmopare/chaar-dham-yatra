@@ -1,5 +1,5 @@
 const { check, validationResult } = require('express-validator');
-const { createPlace, getAllPlaces } = require('../controllers/adminControllers');
+const { createPlace, getAllPlaces, createHotel, getAllHotels } = require('../controllers/adminControllers');
 var express = require('express');
 var router = express.Router()
 
@@ -10,7 +10,16 @@ router.post("/admin/place", [
     check("imageUrl", "invalid imageUrl").isURL(),
     check("location", "invalid locationUrl").isURL(),
 ], createPlace);
+
+router.post("/admin/hotel", [
+    check("name", "category should be at-least 3 character").isLength({ min: 3 }),
+    check("imageUrl", "invalid imageUrl").isURL(),
+    check("location", "location should be at-least 3 character").isLength({ min: 3 }),
+], createHotel);
 router.get("/admin/places/:search", getAllPlaces);
+
+router.get("/admin/hotels/:search", getAllHotels);
+
 
 
 module.exports = router;
