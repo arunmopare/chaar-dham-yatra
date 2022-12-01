@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
-  <ion-card>
+  <!-- <ion-card>
     <img src="https://travelobiz.com/wp-content/uploads/2019/05/Kedarnath-Yatra.jpg">
     <ion-card-header>
       <ion-card-subtitle>Char Dham</ion-card-subtitle>
@@ -16,6 +16,16 @@
     <ion-card-content>
       Keep close to Nature's heart... and break clear away, once in awhile,
       and climb a mountain or spend a week in the woods. Wash your spirit clean.
+    </ion-card-content>
+  </ion-card> -->
+  <ion-card *ngFor="let place of currentPlaces">
+    <img src="{{place.imageUrl}}">
+    <ion-card-header>
+      <ion-card-subtitle>{{place.isCharDham? "Chaar Dham" : "Tourism"}}</ion-card-subtitle>
+      <ion-card-title>{{place.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{place.description}}
     </ion-card-content>
   </ion-card>
 </ion-content>

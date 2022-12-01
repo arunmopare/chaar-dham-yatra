@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Place } from '../interface/place';
+import { AdminService } from '../Services/admin.service';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  currentPlaces: Place[] = [];
+  search: '';
 
-  ngOnInit() {}
+  constructor(private adminService: AdminService) { }
 
+  ngOnInit() {
+    this.adminService.getSearchedPlaces(undefined).subscribe(
+      res => {
+        this.currentPlaces = res;
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+  onSearchModified() {
+    this.adminService.getSearchedPlaces(this.search).subscribe(
+      res => {
+        this.currentPlaces = res;
+        console.log(this.currentPlaces);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
 }
