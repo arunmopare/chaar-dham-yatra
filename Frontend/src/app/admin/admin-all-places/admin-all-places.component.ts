@@ -11,10 +11,8 @@ export class AdminAllPlacesComponent implements OnInit {
 
   currentPlaces: Place[] = [];
   search: '';
-
   constructor(private adminService: AdminService) { }
-
-  ngOnInit() {
+  getData = () => {
     this.adminService.getSearchedPlaces(undefined).subscribe(
       res => {
         this.currentPlaces = res;
@@ -23,18 +21,16 @@ export class AdminAllPlacesComponent implements OnInit {
         console.log(err);
       }
     );
+
+  };
+
+  ngOnInit() {
+    this.getData();
   }
 
   onSearchModified() {
     if (this.search === '') {
-      this.adminService.getSearchedPlaces(undefined).subscribe(
-        res => {
-          this.currentPlaces = res;
-        },
-        err => {
-          console.log(err);
-        }
-      );
+      this.getData();
     } else {
       this.adminService.getSearchedPlaces(this.search).subscribe(
         res => {
@@ -46,5 +42,16 @@ export class AdminAllPlacesComponent implements OnInit {
         }
       );
     }
+  }
+  deletePlace(id) {
+    this.adminService.deletePlace(id).subscribe(
+      res => {
+        this.getData();
+        console.log(this.currentPlaces);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 }

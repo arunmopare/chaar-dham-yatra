@@ -1,4 +1,5 @@
 export interface Place {
+    _id: string;
     id: string;
     category: string;
     name: string;
@@ -9,6 +10,7 @@ export interface Place {
 };
 
 export interface Hotel {
+    _id: string;
     id: string;
     name?: string;
     totalRooms?: string;

@@ -20,10 +20,10 @@
           <ion-thumbnail slot="start">
             <img alt="{{place.name}}" src="{{place.imageUrl}}" />
           </ion-thumbnail>
-          <ion-label>Name - {{place.name}}</ion-label>
-          <ion-label>Category - {{place.category}}</ion-label>
+          <ion-label>{{place.name}}</ion-label>
           <ion-item>
-            <ion-button color="danger">Edit</ion-button>
+            <ion-button color="success">Edit</ion-button>
+            <ion-button (click)="deletePlace(place._id)" color="danger">Delete</ion-button>
           </ion-item>
         </ion-item>
       </ion-list>

@@ -1,5 +1,5 @@
 const { check, validationResult } = require('express-validator');
-const { createPlace, getAllPlaces, createHotel, getAllHotels, getTotal } = require('../controllers/adminControllers');
+const { createPlace, getAllPlaces, createHotel, getAllHotels, getTotal, deletePlace, deleteHotel } = require('../controllers/adminControllers');
 var express = require('express');
 var router = express.Router()
 
@@ -17,8 +17,11 @@ router.post("/admin/hotel", [
     check("location", "location should be at-least 3 character").isLength({ min: 3 }),
 ], createHotel);
 router.get("/admin/places/:search", getAllPlaces);
+router.delete("/admin/place/:id", deletePlace);
 
-router.get("/admin/hotels/:search", getAllHotels);
+
+router.get("/admin/places/:search", getAllPlaces);
+router.delete("/admin/hotel/:id", deleteHotel);
 
 router.get("/admin/total", getTotal);
 

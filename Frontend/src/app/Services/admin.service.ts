@@ -28,7 +28,12 @@ export class AdminService {
   getSearchedPlaces(search) {
     return this.http.get<any>(this.getPlacesEndpoint + '/' + search);
   }
-
+  deletePlace(id) {
+    return this.http.delete<any>(this.placeEndpoint + '/' + id);
+  }
+  deleteHotel(id) {
+    return this.http.delete<any>(this.hotelEndpoint + '/' + id);
+  }
   getAllHotels() {
     return this.http.get<any>(this.getHotelsEndpoint);
   }

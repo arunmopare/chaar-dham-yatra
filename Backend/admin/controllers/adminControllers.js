@@ -98,6 +98,46 @@ exports.getAllPlaces = async (req, res, next) => {
         res.status(400).json({ err: "Something went wrong" });
     }
 }
+exports.deletePlace = async (req, res, next) => {
+    try {
+        const id = req.param('id');
+        let places;
+        if (id === 'undefined' || id === '') {
+            return res.status(400).json({ err: "Something went wrong" });
+        }
+        else {
+            places = await Place.deleteOne({ _id: id });
+        }
+        if (places) {
+            return res.status(200).json({ msg: "deleted" });
+        }
+        else {
+            res.status(400).json({ err: "Something went wrong" });
+        }
+    } catch (error) {
+        res.status(400).json({ err: "Something went wrong" });
+    }
+}
+exports.deleteHotel = async (req, res, next) => {
+    try {
+        const id = req.param('id');
+        let hotels;
+        if (id === 'undefined' || id === '') {
+            return res.status(400).json({ err: "Something went wrong" });
+        }
+        else {
+            hotels = await Hotel.deleteOne({ _id: id });
+        }
+        if (hotels) {
+            return res.status(200).json({ msg: "deleted" });
+        }
+        else {
+            res.status(400).json({ err: "Something went wrong" });
+        }
+    } catch (error) {
+        res.status(400).json({ err: "Something went wrong" });
+    }
+}
 
 exports.getTotal = async (req, res, next) => {
     try {

@@ -12,7 +12,14 @@
   <form name="addPlaceForm" #addPlaceForm="ngForm" (ngSubmit)="onSubmitForm(addPlaceForm)">
     <ion-item lines="full">
       <ion-label position="floating">Category</ion-label>
-      <ion-input name="category" type="text" required ngModel></ion-input>
+      <ion-select required name="category" ngModel interface="popover" placeholder="Select">
+        <ion-select-option value="true">Tourism</ion-select-option>
+        <ion-select-option value="false">Religious Place</ion-select-option>
+        <ion-select-option value="false">Mountain Areas</ion-select-option>
+        <ion-select-option value="false">Forest</ion-select-option>
+        <ion-select-option value="false">Town/City</ion-select-option>
+      </ion-select>
+      <!-- <ion-input name="category" type="text" required ngModel></ion-input> -->
     </ion-item>
     <ion-item lines="full">
       <ion-label position="floating">Place Name</ion-label>
@@ -33,7 +40,7 @@
 
     <ion-item lines="full">
       <ion-label>Is this place one of the Char Dham?</ion-label>
-      <ion-select name="isCharDham" ngModel interface="popover" placeholder="Select">
+      <ion-select required name="isCharDham" ngModel interface="popover" placeholder="Select">
         <ion-select-option value="true">Yes</ion-select-option>
         <ion-select-option value="false">No</ion-select-option>
       </ion-select>
