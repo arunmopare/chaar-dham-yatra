@@ -139,6 +139,27 @@ exports.deleteHotel = async (req, res, next) => {
     }
 }
 
+exports.getHotel = async (req, res, next) => {
+    try {
+        const id = req.param('id');
+        let hotel;
+        if (id === 'undefined' || id === '') {
+            return res.status(400).json({ err: "Something went wrong" });
+        }
+        else {
+            hotel = await Hotel.findOne({ _id: id });
+        }
+        if (hotel) {
+            return res.status(200).json(hotel);
+        }
+        else {
+            res.status(400).json({ err: "Something went wrong" });
+        }
+    } catch (error) {
+        res.status(400).json({ err: "Something went wrong" });
+    }
+}
+
 exports.getTotal = async (req, res, next) => {
     try {
         const places = await Place.find({});

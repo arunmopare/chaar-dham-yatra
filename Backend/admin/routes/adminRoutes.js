@@ -1,5 +1,5 @@
 const { check, validationResult } = require('express-validator');
-const { createPlace, getAllPlaces, createHotel, getAllHotels, getTotal, deletePlace, deleteHotel } = require('../controllers/adminControllers');
+const { createPlace, getAllPlaces, createHotel, getAllHotels, getTotal, deletePlace, deleteHotel, getHotel } = require('../controllers/adminControllers');
 var express = require('express');
 var router = express.Router()
 
@@ -21,6 +21,7 @@ router.delete("/admin/place/:id", deletePlace);
 
 
 router.get("/admin/hotels/:search", getAllHotels);
+router.get("/admin/hotel/:id", getHotel)
 router.delete("/admin/hotel/:id", deleteHotel);
 
 router.get("/admin/total", getTotal);

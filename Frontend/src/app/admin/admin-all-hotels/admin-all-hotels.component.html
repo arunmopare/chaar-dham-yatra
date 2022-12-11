@@ -25,7 +25,7 @@
           <ion-label>{{hotel.name}}</ion-label>
           <ion-label>Rooms - {{hotel.totalRooms}}</ion-label>
           <ion-item>
-            <ion-button color="success">Edit</ion-button>
+            <ion-button (click)="editHotel(hotel._id)" color="success">Edit</ion-button>
             <ion-button (click)="deleteHotel(hotel._id)" color="danger">delete</ion-button>
           </ion-item>
         </ion-item>

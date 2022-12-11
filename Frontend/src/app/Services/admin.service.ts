@@ -16,23 +16,29 @@ export class AdminService {
 
   constructor(private http: HttpClient) { }
 
-  createPlaceByAdmin(data: Place) {
-    return this.http.post<any>(this.placeEndpoint, data);
-  }
-  createHotelByAdmin(data: Hotel) {
-    return this.http.post<any>(this.hotelEndpoint, data);
-  }
+  // Place
   getAllPlaces() {
     return this.http.get<any>(this.getPlacesEndpoint);
   }
   getSearchedPlaces(search) {
     return this.http.get<any>(this.getPlacesEndpoint + '/' + search);
   }
+  createPlaceByAdmin(data: Place) {
+    return this.http.post<any>(this.placeEndpoint, data);
+  }
   deletePlace(id) {
     return this.http.delete<any>(this.placeEndpoint + '/' + id);
   }
+
+  // Hotel
+  createHotelByAdmin(data: Hotel) {
+    return this.http.post<any>(this.hotelEndpoint, data);
+  }
   deleteHotel(id) {
     return this.http.delete<any>(this.hotelEndpoint + '/' + id);
+  }
+  getHotelById(id) {
+    return this.http.get<any>(this.hotelEndpoint + '/' + id);
   }
   getAllHotels() {
     return this.http.get<any>(this.getHotelsEndpoint);
@@ -40,6 +46,8 @@ export class AdminService {
   getSearchedHotels(search) {
     return this.http.get<any>(this.getHotelsEndpoint + '/' + search);
   }
+
+  // Dashboard
   getTotal() {
     return this.http.get<any>(this.getTotalEndpoint);
   }
