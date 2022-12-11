@@ -6,18 +6,16 @@
     <ion-title>Add Place</ion-title>
   </ion-toolbar>
 </ion-header>
-
-
-<ion-content class="auth-form text-center container">
+<ion-content class="auth-form text-center">
   <form name="addPlaceForm" #addPlaceForm="ngForm" (ngSubmit)="onSubmitForm(addPlaceForm)">
     <ion-item lines="full">
       <ion-label position="floating">Category</ion-label>
       <ion-select required name="category" ngModel interface="popover" placeholder="Select">
-        <ion-select-option value="true">Tourism</ion-select-option>
-        <ion-select-option value="false">Religious Place</ion-select-option>
-        <ion-select-option value="false">Mountain Areas</ion-select-option>
-        <ion-select-option value="false">Forest</ion-select-option>
-        <ion-select-option value="false">Town/City</ion-select-option>
+        <ion-select-option value="Tourism">Tourism</ion-select-option>
+        <ion-select-option value="Religious Place">Char Dham</ion-select-option>
+        <ion-select-option value="Mountain Areas">Mountain Areas</ion-select-option>
+        <ion-select-option value="Forest">Forest</ion-select-option>
+        <ion-select-option value="Town/City">Town/City</ion-select-option>
       </ion-select>
       <!-- <ion-input name="category" type="text" required ngModel></ion-input> -->
     </ion-item>

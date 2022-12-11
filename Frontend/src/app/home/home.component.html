@@ -19,10 +19,19 @@
     </ion-card-content>
   </ion-card> -->
   <ion-item>
-    <ion-input [(ngModel)]="search" placeholder="Search a Place" [clearInput]="true">
+    <ion-input [(ngModel)]="search" placeholder="Search by Name" [clearInput]="true">
     </ion-input>
-    <ion-icon (click)="onSearchModified()" name="search" slot="end"></ion-icon>
+    <ion-icon color="danger" (click)="onSearchModified()" name="search" slot="end"></ion-icon>
+    <ion-select required name="category" ngModel interface="popover" placeholder="Filter By Category">
+      <ion-select-option value="Tourism">Tourism</ion-select-option>
+      <ion-select-option value="Tourism">Char Dham</ion-select-option>
+      <ion-select-option value="Religious Place">Religious Place</ion-select-option>
+      <ion-select-option value="Mountain Areas">Mountain Areas</ion-select-option>
+      <ion-select-option value="Forest">Forest</ion-select-option>
+      <ion-select-option value="Town/City">Town/City</ion-select-option>
+    </ion-select>
   </ion-item>
+
   <ion-card *ngFor="let place of currentPlaces">
     <img src="{{place.imageUrl}}">
     <ion-card-header>
