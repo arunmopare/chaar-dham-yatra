@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AdminService } from 'src/app/Services/admin.service';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-admin-add-char-dham',

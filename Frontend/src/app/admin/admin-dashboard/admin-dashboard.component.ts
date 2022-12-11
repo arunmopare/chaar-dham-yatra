@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Total } from 'src/app/utils/interface/place';
-import { AdminService } from 'src/app/Services/admin.service';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-admin-dashboard',

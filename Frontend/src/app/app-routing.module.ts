@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthWelcomeComponent } from './auth-welcome/auth-welcome.component';
+import { AuthWelcomeComponent } from './common/auth-welcome/auth-welcome.component';
 import { CharDhamComponent } from './travelers/char-dham/char-dham.component';
 import { ForgotPasswordComponent } from './travelers/forgot-password/forgot-password.component';
 import { HomeComponent } from './travelers/home/home.component';
 import { HotelsComponent } from './travelers/hotels/hotels.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './common/login/login.component';
 import { MyProfileComponent } from './travelers/my-profile/my-profile.component';
 import { VisitedPlacesComponent } from './travelers/visited-places/visited-places.component';
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from './common/register/register.component';
 import { OtherPlacesComponent } from './travelers/other-places/other-places.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminAddCharDhamComponent } from './admin/admin-add-char-dham/admin-add-char-dham.component';
 import { AdminAddOtherPlacesComponent } from './admin/admin-add-other-places/admin-add-other-places.component';
 import { AdminAddHotelsComponent } from './admin/admin-add-hotels/admin-add-hotels.component';
 import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
-import { TravelerAuthGuard } from './Services/traveler-auth.guard';
-import { AdminAuthGuard } from './Services/admin-auth.guard';
+import { TravelerAuthGuard } from './services/traveler-auth.guard';
+import { AdminAuthGuard } from './services/admin-auth.guard';
 import { AdminAllPlacesComponent } from './admin/admin-all-places/admin-all-places.component';
 import { AdminAllHotelsComponent } from './admin/admin-all-hotels/admin-all-hotels.component';
 

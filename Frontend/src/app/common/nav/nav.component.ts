@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Traveler } from '../utils/interface/traveler';
-import { SessionService } from '../Services/session.service';
+import { Traveler } from '../../utils/interface/traveler';
+import { SessionService } from '../../services/session.service';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',

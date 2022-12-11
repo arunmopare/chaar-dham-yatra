@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonSlides } from '@ionic/angular';
-import { SessionService } from '../Services/session.service';
+import { SessionService } from '../../services/session.service';
 
 @Component({
   selector: 'app-auth-welcome',

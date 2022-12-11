@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { TravelerService } from '../../services/traveler.service';
+import { Traveler } from '../../utils/interface/traveler';
+import { SessionService } from '../../services/session.service';
 import { Router } from '@angular/router';
-import { SessionService } from '../Services/session.service';
-import { TravelerService } from '../Services/traveler.service';
+
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
 })
-export class RegisterComponent implements OnInit {
-  isError = false;
+export class LoginComponent implements OnInit {
   error = '';
   constructor(private travelerService: TravelerService, private sessionService: SessionService, private router: Router) { }
 
@@ -20,10 +22,9 @@ export class RegisterComponent implements OnInit {
       this.router.navigateByUrl('/admin-home');
     }
   }
-  onRegisterClick(data) {
-    console.log(data);
+  onLoginClick(data) {
     if (data.form.status === 'VALID') {
-      this.travelerService.travelerRegistration(data.form.value).subscribe(
+      this.travelerService.travelerLogin(data.form.value).subscribe(
         res => {
           this.sessionService.createTravelerSession(res);
           if (res.auth.role === '00') {

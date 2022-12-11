@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Place } from '../../utils/interface/place';
-import { AdminService } from '../../Services/admin.service';
+import { AdminService } from '../../services/admin.service';
 
 @Component({
   selector: 'app-home',

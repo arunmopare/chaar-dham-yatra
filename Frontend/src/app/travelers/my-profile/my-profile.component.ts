@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Traveler } from '../../utils/interface/traveler';
-import { SessionService } from '../../Services/session.service';
+import { SessionService } from '../../services/session.service';
 
 @Component({
   selector: 'app-my-profile',
