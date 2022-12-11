@@ -10,21 +10,19 @@
   <form name="addHotelForm" #addHotelForm="ngForm" (ngSubmit)="onSubmitForm(addHotelForm)">
     <ion-item lines="full">
       <ion-label position="floating">Hotel Name</ion-label>
-      <ion-input autoGrow="true" name="name" type="text" value="{{currentHotel.name}}" required ngModel></ion-input>
+      <ion-input autoGrow="true" name="name" type="text" required ngModel></ion-input>
     </ion-item>
     <ion-item lines="full">
       <ion-label position="floating">Image URL</ion-label>
-      <ion-input autoGrow="true" name="imageUrl" value="{{currentHotel.imageUrl}}" type="text" required
-        ngModel></ion-input>
+      <ion-input autoGrow="true" name="imageUrl" type="text" required ngModel></ion-input>
     </ion-item>
     <ion-item lines="full">
       <ion-label position="floating">Total Rooms</ion-label>
-      <ion-input name="totalRooms" type="number" value="{{currentHotel.totalRooms}}" required ngModel></ion-input>
+      <ion-input name="totalRooms" type="number" required ngModel></ion-input>
     </ion-item>
     <ion-item lines="full">
       <ion-label position="floating">Hotel Location</ion-label>
-      <ion-input autoGrow="true" name="location" type="text" value="{{currentHotel.location}}" required
-        ngModel></ion-input>
+      <ion-input autoGrow="true" name="location" type="text" required ngModel></ion-input>
     </ion-item>
 
     <ion-row>
@@ -32,14 +30,15 @@
         {{error}}
       </ion-col>
     </ion-row>
-    <ion-row *ngIf="hotelAdded">
+    <ion-row *ngIf="hotelUpdated">
       <ion-col style="color : green;">
-        Hotel Added
+        Hotel Updated
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button type="submit" type="submit" value="submit" color="success" expand="block">Save Changes</ion-button>
+        <ion-button [disabled]="addHotelForm.form.status === 'INVALID'" type="submit" type="submit" value="submit"
+          color="success" expand="block">Save Changes</ion-button>
       </ion-col>
     </ion-row>
   </form>

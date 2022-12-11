@@ -46,7 +46,9 @@ export class AdminService {
   getSearchedHotels(search) {
     return this.http.get<any>(this.getHotelsEndpoint + '/' + search);
   }
-
+  updateHotelByAdmin(data: Hotel, id) {
+    return this.http.patch<any>(this.hotelEndpoint + '/' + id, data);
+  }
   // Dashboard
   getTotal() {
     return this.http.get<any>(this.getTotalEndpoint);

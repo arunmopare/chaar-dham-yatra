@@ -159,6 +159,33 @@ exports.getHotel = async (req, res, next) => {
         res.status(400).json({ err: "Something went wrong" });
     }
 }
+exports.updateHotel = async (req, res, next) => {
+    try {
+        const newHotel = new Hotel(req.body);
+        const id = req.param('id');
+        let oldHotel;
+        if (id === 'undefined' || id === '') {
+            return res.status(400).json({ err: "Something went wrong" });
+        }
+        else {
+            oldHotel = await Hotel.findOne({ _id: id });
+        }
+        if (oldHotel) {
+            oldHotel.name = newHotel.name;
+            oldHotel.imageUrl = newHotel.imageUrl;
+            oldHotel.totalRooms = newHotel.totalRooms;
+            oldHotel.location = newHotel.location;
+
+            await oldHotel.save();
+            return res.status(200).json(oldHotel);
+        }
+        else {
+            res.status(400).json({ err: "Something went wrong" });
+        }
+    } catch (error) {
+
+    }
+}
 
 exports.getTotal = async (req, res, next) => {
     try {
