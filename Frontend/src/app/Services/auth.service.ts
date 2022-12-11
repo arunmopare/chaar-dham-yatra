@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { API_ENDPOINT } from '../constants/api.constant';
-import { Traveler } from '../interface/traveler';
+import { API_ENDPOINT } from '../utils/constants/api.constant';
+import { Traveler } from '../utils/interface/traveler';
 @Injectable({
   providedIn: 'root'
 })

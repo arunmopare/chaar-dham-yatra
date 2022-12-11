@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Total } from 'src/app/interface/place';
+import { Total } from 'src/app/utils/interface/place';
 import { AdminService } from 'src/app/Services/admin.service';
 
 @Component({

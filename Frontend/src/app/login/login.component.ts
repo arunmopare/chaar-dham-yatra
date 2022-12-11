@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { TravelerService } from '../Services/traveler.service';
-import { Traveler } from '../interface/traveler';
+import { Traveler } from '../utils/interface/traveler';
 import { SessionService } from '../Services/session.service';
 import { Router } from '@angular/router';
 

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { API_ENDPOINT } from '../constants/api.constant';
-import { Hotel, Place } from '../interface/place';
+import { API_ENDPOINT } from '../utils/constants/api.constant';
+import { Hotel, Place } from '../utils/interface/place';
 
 @Injectable({
   providedIn: 'root'

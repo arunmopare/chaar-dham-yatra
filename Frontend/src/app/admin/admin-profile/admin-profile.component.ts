@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Traveler } from 'src/app/interface/traveler';
+import { Traveler } from 'src/app/utils/interface/traveler';
 import { SessionService } from 'src/app/Services/session.service';
 
 @Component({

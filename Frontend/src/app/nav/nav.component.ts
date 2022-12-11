@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Traveler } from '../interface/traveler';
+import { Traveler } from '../utils/interface/traveler';
 import { SessionService } from '../Services/session.service';
 @Component({
   selector: 'app-nav',

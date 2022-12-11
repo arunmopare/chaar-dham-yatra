@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthWelcomeComponent } from './auth-welcome/auth-welcome.component';
-import { CharDhamComponent } from './char-dham/char-dham.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { HomeComponent } from './home/home.component';
-import { HotelsComponent } from './hotels/hotels.component';
+import { CharDhamComponent } from './travelers/char-dham/char-dham.component';
+import { ForgotPasswordComponent } from './travelers/forgot-password/forgot-password.component';
+import { HomeComponent } from './travelers/home/home.component';
+import { HotelsComponent } from './travelers/hotels/hotels.component';
 import { LoginComponent } from './login/login.component';
-import { MyProfileComponent } from './my-profile/my-profile.component';
-import { VisitedPlacesComponent } from './visited-places/visited-places.component';
+import { MyProfileComponent } from './travelers/my-profile/my-profile.component';
+import { VisitedPlacesComponent } from './travelers/visited-places/visited-places.component';
 import { RegisterComponent } from './register/register.component';
-import { OtherPlacesComponent } from './other-places/other-places.component';
+import { OtherPlacesComponent } from './travelers/other-places/other-places.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminAddCharDhamComponent } from './admin/admin-add-char-dham/admin-add-char-dham.component';
 import { AdminAddOtherPlacesComponent } from './admin/admin-add-other-places/admin-add-other-places.component';
@@ -26,10 +26,10 @@ const routes: Routes = [
     redirectTo: 'welcome',
     pathMatch: 'full'
   },
-  {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then(m => m.FolderPageModule)
-  },
+  // {
+  //   path: 'folder/:id',
+  //   loadChildren: () => import('./folder/folder.module').then(m => m.FolderPageModule)
+  // },
   {
     canActivate: [TravelerAuthGuard],
     path: 'home',

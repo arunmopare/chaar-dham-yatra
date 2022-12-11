@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Traveler } from '../interface/traveler';
+import { Traveler } from '../utils/interface/traveler';
 @Injectable({
   providedIn: 'root'
 })
