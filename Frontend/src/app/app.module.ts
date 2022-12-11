@@ -22,7 +22,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminAddCharDhamComponent } from './admin/admin-add-char-dham/admin-add-char-dham.component';
 import { AdminAddHotelsComponent } from './admin/admin-add-hotels/admin-add-hotels.component';
-import { AdminAddOtherPlacesComponent } from './admin/admin-add-other-places/admin-add-other-places.component';
 import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
 import { AdminAllPlacesComponent } from './admin/admin-all-places/admin-all-places.component';
 import { AdminAllHotelsComponent } from './admin/admin-all-hotels/admin-all-hotels.component';
@@ -45,7 +44,6 @@ import { AdminAllHotelsComponent } from './admin/admin-all-hotels/admin-all-hote
     AdminDashboardComponent,
     AdminAddCharDhamComponent,
     AdminAddHotelsComponent,
-    AdminAddOtherPlacesComponent,
     AdminProfileComponent,
     AdminAllPlacesComponent,
     AdminAllHotelsComponent,

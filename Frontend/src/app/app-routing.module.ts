@@ -12,7 +12,6 @@ import { RegisterComponent } from './common/register/register.component';
 import { OtherPlacesComponent } from './travelers/other-places/other-places.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminAddCharDhamComponent } from './admin/admin-add-char-dham/admin-add-char-dham.component';
-import { AdminAddOtherPlacesComponent } from './admin/admin-add-other-places/admin-add-other-places.component';
 import { AdminAddHotelsComponent } from './admin/admin-add-hotels/admin-add-hotels.component';
 import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
 import { TravelerAuthGuard } from './services/traveler-auth.guard';
@@ -85,11 +84,6 @@ const routes: Routes = [
     canActivate: [AdminAuthGuard],
     path: 'admin-add-char-dham',
     component: AdminAddCharDhamComponent
-  },
-  {
-    canActivate: [AdminAuthGuard],
-    path: 'admin-add-other-places',
-    component: AdminAddOtherPlacesComponent
   },
   {
     canActivate: [AdminAuthGuard],

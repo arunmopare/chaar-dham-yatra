@@ -10,7 +10,8 @@
 
 <ion-content [fullscreen]="true">
   <ion-item>
-    <ion-input [(ngModel)]="search" placeholder="Search a Place" [clearInput]="true">
+    <ion-input [(ngModel)]="search" (ngModelChange)="onInputChange(search)" placeholder="Search a Hotel"
+      [clearInput]="true">
     </ion-input>
     <ion-icon (click)="onSearchModified()" name="search" slot="end"></ion-icon>
   </ion-item>

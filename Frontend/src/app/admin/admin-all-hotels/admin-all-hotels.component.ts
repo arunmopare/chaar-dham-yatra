@@ -40,6 +40,20 @@ export class AdminAllHotelsComponent implements OnInit {
       );
     }
   }
+  onInputChange(input) {
+    if (this.search === '') {
+      this.getData();
+    } else {
+      this.adminService.getSearchedHotels(input).subscribe(
+        res => {
+          this.currentHotels = res;
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    }
+  }
   deleteHotel(id) {
     this.adminService.deleteHotel(id).subscribe(
       res => {

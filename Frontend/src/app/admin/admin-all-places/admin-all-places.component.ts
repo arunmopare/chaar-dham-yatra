@@ -43,6 +43,21 @@ export class AdminAllPlacesComponent implements OnInit {
       );
     }
   }
+  onInputChange(input) {
+    if (this.search === '') {
+      this.getData();
+    } else {
+      this.adminService.getSearchedPlaces(input).subscribe(
+        res => {
+          this.currentPlaces = res;
+          console.log(this.currentPlaces);
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    }
+  }
   deletePlace(id) {
     this.adminService.deletePlace(id).subscribe(
       res => {
