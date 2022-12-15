@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { AdminService } from 'src/app/services/admin.service';
 import { Hotel } from 'src/app/utils/interface/place';
 
@@ -20,7 +21,7 @@ export class AdminEditHotelComponent implements OnInit {
     imageUrl: '',
     location: '',
   };
-  constructor(private adminService: AdminService, private route: ActivatedRoute) { }
+  constructor(private adminService: AdminService, private route: ActivatedRoute, private alertController: AlertController) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => this.id = params.id);
@@ -41,16 +42,25 @@ export class AdminEditHotelComponent implements OnInit {
       );
     }
   }
-  onSubmitForm(data) {
+  async onSubmitForm(data) {
     console.log('data', data);
 
     console.log(data.form.value);
+    await this.presentAlert();
     this.adminService.updateHotelByAdmin(data.form.value, this.id).subscribe(
-      res => {
+      async res => {
         this.hotelUpdated = true;
         this.error = '';
       },
       err => this.error = err.error.err
     );
+  }
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Message',
+      message: 'Successfully Hotel Updated!',
+      buttons: ['OK'],
+    });
+    await alert.present();
   }
 }

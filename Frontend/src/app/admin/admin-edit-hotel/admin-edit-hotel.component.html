@@ -30,15 +30,17 @@
         {{error}}
       </ion-col>
     </ion-row>
-    <ion-row *ngIf="hotelUpdated">
-      <ion-col style="color : green;">
-        Hotel Updated
-      </ion-col>
-    </ion-row>
     <ion-row>
       <ion-col>
         <ion-button [disabled]="addHotelForm.form.status === 'INVALID'" type="submit" type="submit" value="submit"
           color="success" expand="block">Save Changes</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="hotelUpdated">
+      <ion-col>
+        <ion-button expand="block" color="danger" routerLink="/admin-all-hotels">
+          Updated!, Show all hotels
+        </ion-button>
       </ion-col>
     </ion-row>
   </form>

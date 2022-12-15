@@ -9,63 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-all-hotels.component.scss'],
 })
 export class AdminAllHotelsComponent implements OnInit {
-
-  currentHotels: Hotel[] = [];
-  search: '';
-  constructor(private adminService: AdminService, private router: Router) { }
-  getData = () => {
-    this.adminService.getSearchedHotels(undefined).subscribe(
-      res => {
-        this.currentHotels = res;
-      },
-      err => {
-        console.log(err);
-      }
-    );
-  };
-  ngOnInit() {
-    this.getData();
-  }
-
-  onSearchModified() {
-    if (this.search === '') {
-      this.getData();
-    } else {
-      this.adminService.getSearchedHotels(this.search).subscribe(
-        res => {
-          this.currentHotels = res;
-        },
-        err => {
-          console.log(err);
-        }
-      );
-    }
-  }
-  editHotel(id) {
-    this.router.navigateByUrl('/admin-edit-hotel/' + id);
-  }
-  onInputChange(input) {
-    if (this.search === '') {
-      this.getData();
-    } else {
-      this.adminService.getSearchedHotels(input).subscribe(
-        res => {
-          this.currentHotels = res;
-        },
-        err => {
-          console.log(err);
-        }
-      );
-    }
-  }
-  deleteHotel(id) {
-    this.adminService.deleteHotel(id).subscribe(
-      res => {
-        this.getData();
-      },
-      err => {
-        console.log(err);
-      }
-    );
+  ngOnInit(): void {
   }
 }

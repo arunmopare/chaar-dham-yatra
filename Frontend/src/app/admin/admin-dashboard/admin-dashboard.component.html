@@ -7,19 +7,31 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
+  <ion-card color="secondary">
+    <ion-card-header>
+      <ion-card-title>Quick Actions</ion-card-title>
+      <ion-card-subtitle>
+        <ion-chip [routerLink]="['/admin-add-char-dham']">Add a Place</ion-chip>
+        <ion-chip [routerLink]="['/admin-all-places']">Show List of Places</ion-chip>
+        <ion-chip [routerLink]="['/admin-add-hotels']">Add a Hotel</ion-chip>
+        <ion-chip [routerLink]="['/admin-all-hotels']">Show List of Hotels</ion-chip>
+      </ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
   <ion-card color="primary">
     <ion-card-header>
       <ion-card-title>Total Places</ion-card-title>
       <ion-card-subtitle>{{total.totalPlaces}}</ion-card-subtitle>
     </ion-card-header>
   </ion-card>
-  <ion-card color="primary">
+  <ion-card color="danger">
     <ion-card-header>
       <ion-card-title>Total Travelers</ion-card-title>
       <ion-card-subtitle>{{total.totalTravelers}}</ion-card-subtitle>
     </ion-card-header>
   </ion-card>
-  <ion-card color="primary">
+
+  <ion-card color="success">
     <ion-card-header>
       <ion-card-title>Total Hotels</ion-card-title>
       <ion-card-subtitle>{{total.totalHotels}}</ion-card-subtitle>
