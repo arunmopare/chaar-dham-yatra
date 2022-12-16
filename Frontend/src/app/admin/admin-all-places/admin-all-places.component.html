@@ -22,9 +22,13 @@
             <img alt="{{place.name}}" src="{{place.imageUrl}}" />
           </ion-thumbnail>
           <ion-label>{{place.name}}</ion-label>
-          <ion-item>
-            <ion-button color="success">Edit</ion-button>
-            <ion-button (click)="deletePlace(place._id)" color="danger">Delete</ion-button>
+          <ion-item slot="end">
+            <ion-button color="success">
+              <ion-icon slot="icon-only" name="create"></ion-icon>
+            </ion-button>
+            <ion-button color="danger" (click)="deletePlace(place._id)">
+              <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-button>
           </ion-item>
         </ion-item>
       </ion-list>

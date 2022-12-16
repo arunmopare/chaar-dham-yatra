@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose');
 var bodyParser = require('body-parser')
-
+const host = '0.0.0.0'
 const port = 3000
 
 var jsonParser = bodyParser.json()
@@ -36,6 +36,6 @@ app.use("/api", travelersRoutes)
 app.use("/api", adminRoutes)
 
 
-app.listen(port, () => {
+app.listen(port, host, () => {
     console.log("Started app on port ", port)
 })

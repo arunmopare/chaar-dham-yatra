@@ -8,19 +8,52 @@
   <ion-card-content>
     <ion-list>
       <ion-item *ngFor="let hotel of currentHotels">
-        <ion-thumbnail slot="start">
-          <img alt="{{hotel.name}}" src="{{hotel.imageUrl}}" />
-        </ion-thumbnail>
-        <ion-label>{{hotel.name}}</ion-label>
-        <ion-label>Rooms - {{hotel.totalRooms}}</ion-label>
-        <ion-item>
-          <ion-button (click)="editHotel(hotel._id)" color="success">Edit</ion-button>
-          <ion-button (click)="deleteHotel(hotel._id)" color="danger">delete</ion-button>
-        </ion-item>
+        <ion-grid class="ion-float-right">
+          <ion-row>
+            <ion-col size="5">
+              <ion-img alt="{{hotel.name}}" src="{{hotel.imageUrl}}"></ion-img>
+            </ion-col>
+            <ion-col size="7">
+              <ion-row>
+                <ion-col>
+                  <ion-label class="ion-float-right">Name: {{hotel.name}}</ion-label>
+                  <ion-label class="ion-float-right">Total Rooms: - {{hotel.totalRooms}}</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-button class="ion-float-right" color="danger" (click)="deleteHotel(hotel._id)">
+                    <ion-icon slot="icon-only" name="trash"></ion-icon>
+                  </ion-button>
+                  <ion-button class="ion-float-right" (click)="editHotel(hotel._id)" color="success">
+                    <ion-icon slot="icon-only" name="create"></ion-icon>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-item>
     </ion-list>
   </ion-card-content>
 </ion-card>
+<!-- <ion-card color="danger" *ngFor="let hotel of currentHotels">
+  <img alt="Silhouette of mountains" src="{{hotel.imageUrl}}" />
+  <ion-card-header>
+    <ion-card-title>{{hotel.name}}</ion-card-title>
+    <ion-card-subtitle>{{hotel.location}}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    Total Rooms available {{hotel.roomsAvailable ? hotel.roomsAvailable : "-" }} out of {{hotel.totalRooms}}
+  </ion-card-content>
+  <ion-button class="ion-float-right" color="danger" (click)="deleteHotel(hotel._id)">
+    Delete
+  </ion-button>
+  <ion-button class="ion-float-right" (click)="editHotel(hotel._id)" color="success">
+    Edit
+  </ion-button>
+</ion-card> -->
 <ion-row class="text-center" *ngIf="currentHotels.length === 0">
   <ion-col style="color : red;">
     No search results found.
