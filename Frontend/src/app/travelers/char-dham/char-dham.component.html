@@ -7,50 +7,22 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <img src="https://www.tourmyindia.com/chardham/images/yamunotri-dham1.jpg">
-    <ion-card-header>
-      <ion-card-subtitle>Char Dham</ion-card-subtitle>
-      <ion-card-title>Yamunotri</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      The first shrine of Chota Chardham,this temple is dedicated to the River Yamuna (Hindu Goddess,Daughter of Sun
-      God).It is situated in the Gharwal region of Uttarakhand State.
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <img
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Gangotri_%28ganga_river%29.jpg/1599px-Gangotri_%28ganga_river%29.jpg">
-    <ion-card-header>
-      <ion-card-subtitle>Char Dham</ion-card-subtitle>
-      <ion-card-title>Gangotri</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      The temple is devoted to Goddess Ganges (the most sacred river in India). It is the second shrine of the Char Dham
-      circuit.
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <img src="https://travelobiz.com/wp-content/uploads/2019/05/Kedarnath-Yatra.jpg">
-    <ion-card-header>
-      <ion-card-subtitle>Char Dham</ion-card-subtitle>
-      <ion-card-title>Kedarnath</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      This temple is devoted to God Shiva in the form of Kedarnath (Lord of Kedar). This is one of the 12 main
-      Jyotirlinga in India. This is the third shrine of the Char Dham circuit.
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <img
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Badrinath_Temple-_Uttarakhand.jpg/2560px-Badrinath_Temple-_Uttarakhand.jpg">
-    <ion-card-header>
-      <ion-card-subtitle>Char Dham</ion-card-subtitle>
-      <ion-card-title>Badrinath</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      This temple is dedicated to Bhagwan Vishnu in the form of Badrinath (Lord of Badri). It is also the part of the
-      main Char Dham Circuit in India and the fourth shrine of the Chardham circuit.
-    </ion-card-content>
-  </ion-card>
+  <ion-row *ngFor="let place of charDhamPlaces">
+    <ion-card>
+      <img src="{{place.imageUrl}}">
+      <ion-card-header>
+        <ion-card-subtitle>{{place.isCharDham? "Chaar Dham" : "Tourism"}}</ion-card-subtitle>
+        <ion-card-title>{{place.name}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{place.description}}
+      </ion-card-content>
+    </ion-card>
+  </ion-row>
+
+  <ion-row class="text-center" *ngIf="charDhamPlaces.length === 0">
+    <ion-col style="color : red;">
+      No search char dham places found.
+    </ion-col>
+  </ion-row>
 </ion-content>

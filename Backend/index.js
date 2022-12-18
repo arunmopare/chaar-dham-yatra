@@ -36,6 +36,6 @@ app.use("/api", travelersRoutes)
 app.use("/api", adminRoutes)
 
 
-app.listen(port, host, () => {
+app.listen(port, () => {
     console.log("Started app on port ", port)
 })

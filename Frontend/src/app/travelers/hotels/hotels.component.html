@@ -60,23 +60,6 @@
       </ion-list>
     </ion-card-content>
   </ion-card>
-  <ion-card color="danger" *ngFor="let hotel of currentHotels">
-    <img alt="Silhouette of mountains" src="{{hotel.imageUrl}}" />
-    <ion-card-header>
-      <ion-card-title>{{hotel.name}}</ion-card-title>
-      <ion-card-subtitle>{{hotel.location}}</ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content>
-      Total Rooms available {{hotel.roomsAvailable ? hotel.roomsAvailable : "-" }} out of {{hotel.totalRooms}}
-    </ion-card-content>
-    <ion-button class="ion-float-right" color="danger" (click)="viewInMaps(hotel._id)">
-      Delete
-    </ion-button>
-    <ion-button class="ion-float-right" (click)="bookHotel(hotel._id)" color="success">
-      Edit
-    </ion-button>
-  </ion-card>
   <ion-row class="text-center" *ngIf="currentHotels.length === 0">
     <ion-col style="color : red;">
       No search results found.
