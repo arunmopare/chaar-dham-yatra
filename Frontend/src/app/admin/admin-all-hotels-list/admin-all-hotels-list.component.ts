@@ -9,9 +9,6 @@ import { Hotel } from 'src/app/utils/interface/place';
   styleUrls: ['./admin-all-hotels-list.component.scss'],
 })
 export class AdminAllHotelsListComponent implements OnInit {
-
-
-
   currentHotels: Hotel[] = [];
   search: '';
   constructor(private adminService: AdminService, private router: Router) { }

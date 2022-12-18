@@ -132,7 +132,7 @@ exports.deleteHotel = async (req, res, next) => {
             return res.status(200).json({ msg: "deleted" });
         }
         else {
-            res.status(400).json({ err: "Something went wrong" });
+            return res.status(400).json({ err: "Something went wrong" });
         }
     } catch (error) {
         return res.status(400).json({ err: "Something went wrong" });
@@ -153,7 +153,7 @@ exports.getHotel = async (req, res, next) => {
             return res.status(200).json(hotel);
         }
         else {
-            res.status(400).json({ err: "Something went wrong" });
+            return res.status(400).json({ err: "Something went wrong" });
         }
     } catch (error) {
         return res.status(400).json({ err: "Something went wrong" });
@@ -174,7 +174,7 @@ exports.getPlace = async (req, res, next) => {
             return res.status(200).json(place);
         }
         else {
-            res.status(400).json({ err: "Something went wrong" });
+            return res.status(400).json({ err: "Something went wrong" });
         }
     } catch (error) {
         return res.status(400).json({ err: "Something went wrong" });
@@ -201,7 +201,7 @@ exports.updateHotel = async (req, res, next) => {
             return res.status(200).json(oldHotel);
         }
         else {
-            res.status(400).json({ err: "Something went wrong" });
+            return res.status(400).json({ err: "Something went wrong" });
         }
     } catch (error) {
         return res.status(400).json({ err: "Something went wrong" });
@@ -209,7 +209,8 @@ exports.updateHotel = async (req, res, next) => {
 }
 exports.updatePlace = async (req, res, next) => {
     try {
-        const newPlace = new Hotel(req.body);
+        const newPlace = new Place(req.body);
+        console.log("New Place", newPlace)
         const id = req.param('id');
         let oldPlace;
         if (id === 'undefined' || id === '') {
@@ -226,11 +227,12 @@ exports.updatePlace = async (req, res, next) => {
             oldPlace.location = newPlace.location;
             oldPlace.isCharDham = newPlace.isCharDham;
 
+            console.log("Tobe saved", oldPlace);
             await oldPlace.save();
             return res.status(200).json(oldPlace);
         }
         else {
-            res.status(400).json({ err: "Something went wrong" });
+            return res.status(400).json({ err: "Something went wrong" });
         }
     } catch (error) {
         return res.status(400).json({ err: "Something went wrong" });
