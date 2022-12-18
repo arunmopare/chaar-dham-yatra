@@ -7,15 +7,22 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <img src="https://a0.muscache.com/im/pictures/6a9ac0b5-38fc-4586-94a3-2e9863a78938.jpg?im_w=1200">
-    <ion-card-header>
-      <ion-card-subtitle>Other Places</ion-card-subtitle>
-      <ion-card-title>Phata</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      Phata is a small village located in route to Kedarnath, Uttarakhand. A strategically and commercially situated on
-      the Gopeshwar- Gaurikund road, Phata...
-    </ion-card-content>
-  </ion-card>
+  <ion-row *ngFor="let place of otherPlaces">
+    <ion-card>
+      <img src="{{place.imageUrl}}">
+      <ion-card-header>
+        <ion-card-subtitle>{{place.isCharDham? "Chaar Dham" : "Tourism"}}</ion-card-subtitle>
+        <ion-card-title>{{place.name}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{place.description}}
+      </ion-card-content>
+    </ion-card>
+  </ion-row>
+
+  <ion-row class="text-center" *ngIf="otherPlaces.length === 0">
+    <ion-col style="color : red;">
+      No search char dham places found.
+    </ion-col>
+  </ion-row>
 </ion-content>

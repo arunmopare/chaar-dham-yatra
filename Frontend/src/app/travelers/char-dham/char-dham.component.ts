@@ -18,6 +18,7 @@ export class CharDhamComponent implements OnInit {
     this.adminService.getSearchedPlaces(undefined).subscribe(
       res => {
         this.currentPlaces = res;
+        this.charDhamPlaces = this.currentPlaces.filter(place => place.isCharDham === true);
       },
       err => {
         console.log(err);
