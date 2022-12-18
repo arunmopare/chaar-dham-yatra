@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Place } from 'src/app/utils/interface/place';
 import { AdminService } from 'src/app/services/admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-all-places',
@@ -11,7 +12,7 @@ export class AdminAllPlacesComponent implements OnInit {
 
   currentPlaces: Place[] = [];
   search: '';
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService, private router: Router) { }
   getData = () => {
     this.adminService.getSearchedPlaces(undefined).subscribe(
       res => {
@@ -68,5 +69,10 @@ export class AdminAllPlacesComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+  editPlace(id) {
+    console.log('edit clicked');
+
+    this.router.navigateByUrl('/admin-edit-place/' + id);
   }
 }

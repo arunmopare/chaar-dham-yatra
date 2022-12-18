@@ -29,6 +29,12 @@ export class AdminService {
   deletePlace(id) {
     return this.http.delete<any>(this.placeEndpoint + '/' + id);
   }
+  getPlaceById(id) {
+    return this.http.get<any>(this.placeEndpoint + '/' + id);
+  }
+  updatePlaceByAdmin(data: Hotel, id) {
+    return this.http.patch<any>(this.placeEndpoint + '/' + id, data);
+  }
 
   // Hotel
   createHotelByAdmin(data: Hotel) {

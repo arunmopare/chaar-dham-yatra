@@ -25,7 +25,6 @@ export class AdminEditHotelComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => this.id = params.id);
-    console.log(this.id);
     this.loadCurrentHotelData(this.id);
   }
   loadCurrentHotelData(id) {
@@ -43,12 +42,9 @@ export class AdminEditHotelComponent implements OnInit {
     }
   }
   async onSubmitForm(data) {
-    console.log('data', data);
-
-    console.log(data.form.value);
-    await this.presentAlert();
     this.adminService.updateHotelByAdmin(data.form.value, this.id).subscribe(
       async res => {
+        await this.presentAlert();
         this.hotelUpdated = true;
         this.error = '';
       },
@@ -58,7 +54,7 @@ export class AdminEditHotelComponent implements OnInit {
   async presentAlert() {
     const alert = await this.alertController.create({
       header: 'Message',
-      message: 'Successfully Hotel Updated!',
+      message: 'Hotel Updated Successfully!',
       buttons: ['OK'],
     });
     await alert.present();

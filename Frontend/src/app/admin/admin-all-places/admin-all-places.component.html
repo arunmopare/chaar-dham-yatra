@@ -23,7 +23,7 @@
           </ion-thumbnail>
           <ion-label>{{place.name}}</ion-label>
           <ion-item slot="end">
-            <ion-button color="success">
+            <ion-button (click)="editPlace(place._id)" color="success">
               <ion-icon slot="icon-only" name="create"></ion-icon>
             </ion-button>
             <ion-button color="danger" (click)="deletePlace(place._id)">

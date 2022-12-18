@@ -26,7 +26,7 @@ exports.createPlace = async (req, res, next) => {
             })
         })
     } catch (error) {
-        res.status(400).json({ err: "Something went wrong" });
+        return res.status(400).json({ err: "Something went wrong" });
     }
 }
 
@@ -52,7 +52,7 @@ exports.createHotel = async (req, res, next) => {
             })
         })
     } catch (error) {
-        res.status(400).json({ err: "Something went wrong" });
+        return res.status(400).json({ err: "Something went wrong" });
     }
 }
 
@@ -74,7 +74,7 @@ exports.getAllHotels = async (req, res, next) => {
             return res.status(200).json(hotels);
         }
     } catch (error) {
-        res.status(400).json({ err: "Something went wrong" });
+        return res.status(400).json({ err: "Something went wrong" });
     }
 }
 exports.getAllPlaces = async (req, res, next) => {
@@ -95,7 +95,7 @@ exports.getAllPlaces = async (req, res, next) => {
             return res.status(200).json(places);
         }
     } catch (error) {
-        res.status(400).json({ err: "Something went wrong" });
+        return res.status(400).json({ err: "Something went wrong" });
     }
 }
 exports.deletePlace = async (req, res, next) => {
@@ -115,7 +115,7 @@ exports.deletePlace = async (req, res, next) => {
             res.status(400).json({ err: "Something went wrong" });
         }
     } catch (error) {
-        res.status(400).json({ err: "Something went wrong" });
+        return res.status(400).json({ err: "Something went wrong" });
     }
 }
 exports.deleteHotel = async (req, res, next) => {
@@ -135,7 +135,7 @@ exports.deleteHotel = async (req, res, next) => {
             res.status(400).json({ err: "Something went wrong" });
         }
     } catch (error) {
-        res.status(400).json({ err: "Something went wrong" });
+        return res.status(400).json({ err: "Something went wrong" });
     }
 }
 
@@ -156,7 +156,28 @@ exports.getHotel = async (req, res, next) => {
             res.status(400).json({ err: "Something went wrong" });
         }
     } catch (error) {
-        res.status(400).json({ err: "Something went wrong" });
+        return res.status(400).json({ err: "Something went wrong" });
+    }
+}
+
+exports.getPlace = async (req, res, next) => {
+    try {
+        const id = req.param('id');
+        let place;
+        if (id === 'undefined' || id === '') {
+            return res.status(400).json({ err: "Something went wrong" });
+        }
+        else {
+            place = await Place.findOne({ _id: id });
+        }
+        if (place) {
+            return res.status(200).json(place);
+        }
+        else {
+            res.status(400).json({ err: "Something went wrong" });
+        }
+    } catch (error) {
+        return res.status(400).json({ err: "Something went wrong" });
     }
 }
 exports.updateHotel = async (req, res, next) => {
@@ -183,7 +204,36 @@ exports.updateHotel = async (req, res, next) => {
             res.status(400).json({ err: "Something went wrong" });
         }
     } catch (error) {
+        return res.status(400).json({ err: "Something went wrong" });
+    }
+}
+exports.updatePlace = async (req, res, next) => {
+    try {
+        const newPlace = new Hotel(req.body);
+        const id = req.param('id');
+        let oldPlace;
+        if (id === 'undefined' || id === '') {
+            return res.status(400).json({ err: "Something went wrong" });
+        }
+        else {
+            oldPlace = await Place.findOne({ _id: id });
+        }
+        if (oldPlace) {
+            oldPlace.category = newPlace.category;
+            oldPlace.name = newPlace.name;
+            oldPlace.imageUrl = newPlace.imageUrl;
+            oldPlace.description = newPlace.description;
+            oldPlace.location = newPlace.location;
+            oldPlace.isCharDham = newPlace.isCharDham;
 
+            await oldPlace.save();
+            return res.status(200).json(oldPlace);
+        }
+        else {
+            res.status(400).json({ err: "Something went wrong" });
+        }
+    } catch (error) {
+        return res.status(400).json({ err: "Something went wrong" });
     }
 }
 
@@ -198,6 +248,6 @@ exports.getTotal = async (req, res, next) => {
             totalTravelers: travelers.length
         })
     } catch (error) {
-        res.status(400).json({ err: "Something went wrong" });
+        return res.status(400).json({ err: "Something went wrong" });
     }
 }

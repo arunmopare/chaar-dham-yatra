@@ -27,6 +27,7 @@ import { AdminAllPlacesComponent } from './admin/admin-all-places/admin-all-plac
 import { AdminAllHotelsComponent } from './admin/admin-all-hotels/admin-all-hotels.component';
 import { AdminEditHotelComponent } from './admin/admin-edit-hotel/admin-edit-hotel.component';
 import { AdminAllHotelsListComponent } from './admin/admin-all-hotels-list/admin-all-hotels-list.component';
+import { AdminEditPlaceComponent } from './admin/admin-edit-place/admin-edit-place.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { AdminAllHotelsListComponent } from './admin/admin-all-hotels-list/admin
     AdminAddHotelsComponent,
     AdminEditHotelComponent,
     AdminAllHotelsListComponent,
-    AdminAllHotelsComponent
+    AdminAllHotelsComponent,
+    AdminEditPlaceComponent
   ],
   imports: [HttpClientModule, BrowserModule, ReactiveFormsModule, FormsModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

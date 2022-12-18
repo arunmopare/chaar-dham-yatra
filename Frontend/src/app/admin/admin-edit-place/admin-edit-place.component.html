@@ -1,3 +1,65 @@
-<p>
-  admin-edit-place works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Edit Place</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="auth-form text-center">
+  <form name="addPlaceForm" #addPlaceForm="ngForm" (ngSubmit)="onSubmitForm(addPlaceForm)">
+    <ion-item lines="full">
+      <ion-label position="floating">Category</ion-label>
+      <ion-select required name="category" ngModel interface="popover" placeholder="Select">
+        <ion-select-option value="Tourism">Tourism</ion-select-option>
+        <ion-select-option value="Religious Place">Char Dham</ion-select-option>
+        <ion-select-option value="Mountain Areas">Mountain Areas</ion-select-option>
+        <ion-select-option value="Forest">Forest</ion-select-option>
+        <ion-select-option value="Town/City">Town/City</ion-select-option>
+      </ion-select>
+      <!-- <ion-input name="category" type="text" required ngModel></ion-input> -->
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Place Name</ion-label>
+      <ion-input autoGrow="true" name="name" type="text" required ngModel></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Image URL</ion-label>
+      <ion-input autoGrow="true" name="imageUrl" type="text" required ngModel></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Place Description</ion-label>
+      <ion-textarea autoGrow="true" name="description" type="text" required ngModel></ion-textarea>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Place Location</ion-label>
+      <ion-textarea autoGrow="true" name="location" type="text" required ngModel></ion-textarea>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label>Is this place one of the Char Dham?</ion-label>
+      <ion-select required name="isCharDham" ngModel interface="popover" placeholder="Select">
+        <ion-select-option value="true">Yes</ion-select-option>
+        <ion-select-option value="false">No</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+    <ion-row>
+      <ion-col style="color : red;">
+        {{error}}
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="placeUpdated">
+      <ion-col style="color : green;">
+        Place Updated
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button [disabled]="addPlaceForm.form.status === 'INVALID'" type="submit" type="submit" value="submit"
+          color="success" expand="block">Update Place</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
