@@ -20,6 +20,7 @@ import { AdminAllPlacesComponent } from './admin/admin-all-places/admin-all-plac
 import { AdminAllHotelsComponent } from './admin/admin-all-hotels/admin-all-hotels.component';
 import { AdminEditHotelComponent } from './admin/admin-edit-hotel/admin-edit-hotel.component';
 import { AdminEditPlaceComponent } from './admin/admin-edit-place/admin-edit-place.component';
+import { PlaceDetailComponent } from './travelers/place-detail/place-detail.component';
 
 const routes: Routes = [
   {
@@ -116,6 +117,11 @@ const routes: Routes = [
     canActivate: [AdminAuthGuard],
     path: 'admin-edit-place/:id',
     component: AdminEditPlaceComponent
+  },
+  {
+    canActivate: [TravelerAuthGuard],
+    path: 'view-place/:id',
+    component: PlaceDetailComponent
   },
 ];
 

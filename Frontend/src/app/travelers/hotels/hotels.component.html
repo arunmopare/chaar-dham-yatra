@@ -13,6 +13,8 @@
     </ion-input>
     <ion-icon (click)="onSearchModified()" name="search" slot="end"></ion-icon>
   </ion-item>
+  <ion-button id="open-modal" expand="block">Show My
+    Booking</ion-button>
   <ion-card *ngFor="let hotel of currentHotels">
     <ion-card-content>
       <ion-list>
@@ -50,10 +52,13 @@
                 <ion-button class="ion-float-right" color="danger" (click)="viewInMaps(hotel._id)">
                   Open In Maps
                 </ion-button>
-                <ion-button class="ion-float-right" (click)="bookHotel(hotel._id)" color="success">
+                <ion-button class="ion-float-right" (click)="presentAlert(hotel.name,hotel._id,hotel.roomsAvailable)"
+                  color="success">
                   Book Hotel
                 </ion-button>
               </ion-col>
+            </ion-row>
+            <ion-row>
             </ion-row>
           </ion-grid>
         </ion-item>
@@ -65,4 +70,35 @@
       No search results found.
     </ion-col>
   </ion-row>
+
+  <ion-modal #modal trigger="open-modal" [presentingElement]="presentingElement">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>My Booking</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="getAllBooking(this.traveler.userId)">Refresh</ion-button>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button (click)="modal.dismiss()">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-text *ngIf="bookings.length === 0" color="primary">
+          <h1>No booking found</h1>
+        </ion-text>
+        <ion-list>
+          <ion-item color="{{booking.isConfirmed ? 'success':'warning'}}" *ngFor="let booking of bookings">
+            <ion-icon slot="start"
+              name="{{booking.isConfirmed ? 'checkmark-done-outline':'hourglass-outline'}}"></ion-icon>
+            <ion-label>
+              <h2>{{booking.userName}} booked at {{booking.hotelName}}</h2>
+              <p>{{booking.numberOfRooms}} Rooms From {{booking.fromDate}} To {{booking.toDate}}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

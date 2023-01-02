@@ -40,6 +40,9 @@
     </ion-card-header>
     <ion-card-content>
       {{place.description}}
+      <ion-button color="danger" (click)="viewPlace(place._id)" expand="block" shape="round">
+        View Place
+      </ion-button>
     </ion-card-content>
   </ion-card>
   <ion-row class="text-center" *ngIf="currentPlaces.length === 0">

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Place } from '../../utils/interface/place';
 import { AdminService } from '../../services/admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ export class HomeComponent implements OnInit {
   currentPlaces: Place[] = [];
   search: '';
 
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService, private router: Router) { }
 
   ngOnInit() {
     this.adminService.getSearchedPlaces(undefined).subscribe(
@@ -46,5 +47,8 @@ export class HomeComponent implements OnInit {
         }
       );
     }
+  }
+  viewPlace(id) {
+    this.router.navigateByUrl('/view-place/' + id);
   }
 }

@@ -13,6 +13,8 @@ export class AdminService {
   getPlacesEndpoint = this.apiEndpoint + '/admin/places';
   getHotelsEndpoint = this.apiEndpoint + '/admin/hotels';
   getTotalEndpoint = this.apiEndpoint + '/admin/total';
+  addVisitedPlaceEndpoint = this.apiEndpoint + '/place/visited';
+  bookingEndpoint = this.apiEndpoint + '/admin/booking';
 
   constructor(private http: HttpClient) { }
 
@@ -59,5 +61,15 @@ export class AdminService {
   getTotal() {
     return this.http.get<any>(this.getTotalEndpoint);
   }
-
+  // Visited
+  addVisitedPlace(data) {
+    return this.http.post<any>(this.addVisitedPlaceEndpoint, data);
+  }
+  // Booking
+  addBooking(data) {
+    return this.http.post<any>(this.bookingEndpoint, data);
+  }
+  getAllBookings(id) {
+    return this.http.get<any>(this.bookingEndpoint + '/' + id);
+  }
 }

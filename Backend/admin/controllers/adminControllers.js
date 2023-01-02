@@ -1,6 +1,8 @@
 const Place = require("../models/placeModel")
 const Hotel = require("../models/hotelModel")
+const Visited = require("../models/visitedModel")
 const Traveler = require("../../travelers/models/travelerModel")
+const Booking = require("../models/hotelBookings")
 
 const { check, validationResult } = require("express-validator");
 
@@ -249,6 +251,77 @@ exports.getTotal = async (req, res, next) => {
             totalHotels: hotels.length,
             totalTravelers: travelers.length
         })
+    } catch (error) {
+        return res.status(400).json({ err: "Something went wrong" });
+    }
+}
+
+exports.addVisitedPlace = async (req, res, next) => {
+    try {
+        const visited = new Visited(req.body);
+
+        const saved = await visited.save();
+
+        if (saved != null) {
+            return res.status(200).json({
+                msg: "added to visited places"
+            })
+        }
+        else {
+            return res.status(400).json({
+                err: "something went wrong"
+            })
+        }
+
+    } catch (error) {
+        return res.status(400).json({
+            err: "something went wrong"
+        })
+    }
+}
+
+exports.addBooking = async (req, res, next) => {
+    try {
+        const booking = new Booking(req.body);
+
+        const saved = await booking.save();
+
+        if (saved != null) {
+            return res.status(200).json({
+                msg: "added to booking "
+            })
+        }
+        else {
+            return res.status(400).json({
+                err: "something went wrong"
+            })
+        }
+
+    } catch (error) {
+        return res.status(400).json({
+            err: "something went wrong"
+        })
+    }
+}
+
+exports.getBooking = async (req, res, next) => {
+    try {
+        const id = req.param('id');
+        console.log(id);
+        let booking;
+        if (id === 'undefined' || id === '') {
+            return res.status(400).json({ err: "Something went wrong" });
+        }
+        else {
+            booking = await Booking.find({ userId: id });
+            console.log('bookings', booking);
+        }
+        if (booking) {
+            return res.status(200).json(booking);
+        }
+        else {
+            return res.status(400).json({ err: "Something went wrong" });
+        }
     } catch (error) {
         return res.status(400).json({ err: "Something went wrong" });
     }

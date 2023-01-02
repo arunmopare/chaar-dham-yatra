@@ -24,3 +24,13 @@ export interface Total {
     totalHotels?: string;
     totalTravelers?: string;
 };
+export interface Booking {
+    userName?: string;
+    userId?: string;
+    hotelId?: string;
+    hotelName?: string;
+    numberOfRooms?: string;
+    fromDate?: string;
+    toDate?: string;
+    isConfirmed?: string;
+};
