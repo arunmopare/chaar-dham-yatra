@@ -9,6 +9,8 @@
 
 
 <ion-content [fullscreen]="true">
+  <ion-button id="open-modal" expand="block">Show
+    Booking Requests</ion-button>
   <app-admin-all-hotels-list></app-admin-all-hotels-list>
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
     <ion-fab-button>
@@ -23,4 +25,42 @@
       </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
+  <ion-modal #modal trigger="open-modal" [presentingElement]="presentingElement">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Booking Requests</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="getAllBooking()">Refresh</ion-button>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button (click)="modal.dismiss()">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-text *ngIf="bookings.length === 0" color="primary">
+          <h1>No booking found</h1>
+        </ion-text>
+        <ion-list>
+          <ion-list>
+            <ion-item-sliding *ngFor="let booking of bookings">
+              <ion-item color="{{booking.isConfirmed ? 'success':'warning'}}">
+                <ion-icon slot="start"
+                  name="{{booking.isConfirmed ? 'checkmark-done-outline':'hourglass-outline'}}"></ion-icon>
+                <ion-label>
+                  <h2>{{booking.userName}} booked at {{booking.hotelName}}</h2>
+                  <p>{{booking.numberOfRooms}} Rooms From {{booking.fromDate}} To {{booking.toDate}}</p>
+                </ion-label>
+              </ion-item>
+              <ion-item-options>
+                <ion-item-option color="primary" (click)="approve(booking)">Approve</ion-item-option>
+                <ion-item-option color="danger" (click)="reject(booking)">Reject</ion-item-option>
+              </ion-item-options>
+            </ion-item-sliding>
+          </ion-list>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

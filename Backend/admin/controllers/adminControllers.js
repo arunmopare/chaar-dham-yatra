@@ -307,17 +307,45 @@ exports.addBooking = async (req, res, next) => {
 exports.getBooking = async (req, res, next) => {
     try {
         const id = req.param('id');
-        console.log(id);
+
         let booking;
         if (id === 'undefined' || id === '') {
             return res.status(400).json({ err: "Something went wrong" });
         }
         else {
-            booking = await Booking.find({ userId: id });
-            console.log('bookings', booking);
+            if (id === 'all') {
+                booking = await Booking.find({});
+            }
+            else {
+                booking = await Booking.find({ userId: id });
+            }
         }
         if (booking) {
             return res.status(200).json(booking);
+        }
+        else {
+            return res.status(400).json({ err: "Something went wrong" });
+        }
+    } catch (error) {
+        return res.status(400).json({ err: "Something went wrong" });
+    }
+}
+exports.updateBookingStatus = async (req, res, next) => {
+    try {
+        const newBooking = new Booking(req.body);
+        const id = req.param('id');
+        let oldBooking;
+        if (id === 'undefined' || id === '') {
+            return res.status(400).json({ err: "Something went wrong" });
+        }
+        else {
+            oldBooking = await Booking.findOne({ _id: id });
+        }
+        if (oldBooking) {
+            oldBooking.isConfirmed = newBooking.isConfirmed;
+
+            await oldBooking.save();
+            return res.status(200).json(oldBooking);
         }
         else {
             return res.status(400).json({ err: "Something went wrong" });

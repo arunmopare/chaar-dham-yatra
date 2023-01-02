@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { API_ENDPOINT } from '../utils/constants/api.constant';
-import { Hotel, Place } from '../utils/interface/place';
+import { Booking, Hotel, Place } from '../utils/interface/place';
 
 @Injectable({
   providedIn: 'root'
@@ -71,5 +71,9 @@ export class AdminService {
   }
   getAllBookings(id) {
     return this.http.get<any>(this.bookingEndpoint + '/' + id);
+  }
+  updateBooking(data: Booking) {
+    // eslint-disable-next-line no-underscore-dangle
+    return this.http.patch<any>(this.bookingEndpoint + '/' + data._id, data);
   }
 }

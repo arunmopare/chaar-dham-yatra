@@ -25,6 +25,7 @@ export interface Total {
     totalTravelers?: string;
 };
 export interface Booking {
+    _id?: string;
     userName?: string;
     userId?: string;
     hotelId?: string;
@@ -32,5 +33,5 @@ export interface Booking {
     numberOfRooms?: string;
     fromDate?: string;
     toDate?: string;
-    isConfirmed?: string;
+    isConfirmed?: boolean;
 };

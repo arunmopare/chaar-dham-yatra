@@ -1,5 +1,5 @@
 const { check, validationResult } = require('express-validator');
-const { createPlace, getAllPlaces, createHotel, getAllHotels, getTotal, deletePlace, deleteHotel, getHotel, updateHotel, getPlace, updatePlace, addVisitedPlace, addBooking, getBooking } = require('../controllers/adminControllers');
+const { createPlace, getAllPlaces, createHotel, getAllHotels, getTotal, deletePlace, deleteHotel, getHotel, updateHotel, getPlace, updatePlace, addVisitedPlace, addBooking, getBooking, updateBookingStatus } = require('../controllers/adminControllers');
 var express = require('express');
 var router = express.Router()
 
@@ -36,6 +36,8 @@ router.post("/place/visited", addVisitedPlace);
 
 // booking
 router.post("/admin/booking", addBooking);
+router.patch("/admin/booking/:id", updateBookingStatus)
 router.get("/admin/booking/:id", getBooking)
+
 
 module.exports = router;
