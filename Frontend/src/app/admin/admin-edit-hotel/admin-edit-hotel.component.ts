@@ -20,6 +20,7 @@ export class AdminEditHotelComponent implements OnInit {
     totalRooms: '',
     imageUrl: '',
     location: '',
+    roomsAvailable: ''
   };
   constructor(private adminService: AdminService, private route: ActivatedRoute, private alertController: AlertController) { }
 
@@ -35,6 +36,7 @@ export class AdminEditHotelComponent implements OnInit {
           this.currentHotel.totalRooms = res.totalRooms;
           this.currentHotel.location = res.location;
           this.currentHotel.imageUrl = res.imageUrl;
+          this.currentHotel.roomsAvailable = res.roomsAvailable;
           this.addHotelForm.setValue(this.currentHotel);
         },
         err => { }

@@ -49,7 +49,7 @@
             </ion-row>
             <ion-row>
               <ion-col>
-                <ion-button class="ion-float-right" color="danger" (click)="viewInMaps(hotel._id)">
+                <ion-button class="ion-float-right" color="danger" href="{{hotel.location}}">
                   Open In Maps
                 </ion-button>
                 <ion-button class="ion-float-right" (click)="presentAlert(hotel.name,hotel._id,hotel.roomsAvailable)"

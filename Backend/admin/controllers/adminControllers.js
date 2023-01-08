@@ -43,6 +43,7 @@ exports.createHotel = async (req, res, next) => {
 
     try {
         const hotel = new Hotel(req.body);
+        hotel.roomsAvailable = hotel.totalRooms;
         hotel.save((err, savedHotel) => {
             if (err) {
                 return res.status(400).json({
@@ -198,7 +199,7 @@ exports.updateHotel = async (req, res, next) => {
             oldHotel.imageUrl = newHotel.imageUrl;
             oldHotel.totalRooms = newHotel.totalRooms;
             oldHotel.location = newHotel.location;
-
+            oldHotel.roomsAvailable = newHotel.roomsAvailable;
             await oldHotel.save();
             return res.status(200).json(oldHotel);
         }
