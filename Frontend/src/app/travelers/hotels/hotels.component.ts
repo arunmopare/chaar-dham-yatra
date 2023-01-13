@@ -87,14 +87,13 @@ export class HotelsComponent implements OnInit {
   async presentAlert(name, id, available) {
     const alert = await this.alertController.create({
 
-      header: 'Booking room at ' + name + ' Hotel',
+      header: name,
       buttons: [{
         text: 'Request for Rooms',
         handler: (data) => {
           data.userId = this.traveler.userId;
           data.hotelId = id;
           data.hotelName = name;
-          console.log('data bedore', data);
           if (data) {
             this.postBooking(data);
           }
@@ -108,6 +107,22 @@ export class HotelsComponent implements OnInit {
           attributes: {
             maxlength: 8,
           },
+        },
+        {
+          type: 'number',
+          name: 'numberOfKids',
+          placeholder: 'Number of Kids',
+          value: this.age,
+          min: 1,
+          max: 100,
+        },
+        {
+          type: 'number',
+          name: 'numberOfAdults',
+          placeholder: 'Number of Adults',
+          value: this.age,
+          min: 1,
+          max: 100,
         },
         {
           type: 'number',
@@ -129,6 +144,7 @@ export class HotelsComponent implements OnInit {
           placeholder: 'from date',
         }
       ],
+      subHeader: 'Booking form'
     });
 
     await alert.present();

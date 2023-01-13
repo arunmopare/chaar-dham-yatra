@@ -7,6 +7,8 @@ const hotelBooking = new Schema({
     userId: String,
     hotelId: String,
     numberOfRooms: Number,
+    numberOfKids: Number,
+    numberOfAdults: Number,
     fromDate: String,
     toDate: String,
     hotelName: String,

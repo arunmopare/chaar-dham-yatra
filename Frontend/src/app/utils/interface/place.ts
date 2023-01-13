@@ -31,6 +31,8 @@ export interface Booking {
     hotelId?: string;
     hotelName?: string;
     numberOfRooms?: string;
+    numberOfKids?: string;
+    numberOfAdults?: string;
     fromDate?: string;
     toDate?: string;
     isConfirmed?: boolean;
